@@ -27,6 +27,20 @@ const variants = {
   },
 };
 
+const variantsTitle = {
+  center: {
+    zIndex: 1,
+    height: "35px",
+    opacity: 1,
+  },
+  exit: {
+    zIndex: 0,
+    height: 0,
+    opacity: 0,
+  }
+  ,
+};
+
 
 /**
  * Experimenting with distilling swipe offset and velocity into a single variable, so the
@@ -57,7 +71,6 @@ export const Scroller = () => {
   const isDragging = useRef(false);
   function onTap(event, info) {
     if (!isDragging.current) {
-      console.log(imageIndex)
       history.push('/page/' + imageIndex + '/')
     }
 
@@ -100,14 +113,25 @@ export const Scroller = () => {
             }
           }}
         >
-          <span className="scroller-img-wrapper"><ProgressiveImage
-            src={images[imageIndex].thumb}
-            placeholder={images[imageIndex].thumb}>
-            {(src) => (
-              <motion.img
-                src={src} alt="" draggable="false"
-              />)}</ProgressiveImage></span>
-          <div className="scroller-text">{images[imageIndex].nome} {images[imageIndex].cognome}</div>
+          <span className="scroller-img-wrapper">
+            <ProgressiveImage
+              src={images[imageIndex].thumb}
+              placeholder={images[imageIndex].thumb}>
+              {(src) => (
+                <motion.img
+                  src={src} alt="" draggable="false"
+                />)}</ProgressiveImage>
+          </span>
+          <motion.div
+            variants={variantsTitle}
+            animate="center"
+            exit="exit"
+            transition={{
+              height: { duration: 0.2 },
+              opacity: { duration: 0.2 },
+            }}
+            className="scroller-text">{images[imageIndex].nome} {images[imageIndex].cognome}
+          </motion.div>
         </motion.div>
       </AnimatePresence>
       <div className="next" onClick={() => paginate(1)}>

@@ -1,8 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const Header = () => {
+import { useSelector } from 'react-redux'
+
+function Header() {
+	const headerColor = useSelector(function (state) {
+		return state.headerColor.value.payload
+	})
+
 	return (
-		<header>
+		<header className={headerColor}>
 			<div className='container'>
 				<div className='row space-between'>
 					<div className='logo'>
@@ -10,9 +16,7 @@ const Header = () => {
 							<svg
 								id="mazal_tov_logo"
 								xmlns="http://www.w3.org/2000/svg"
-
 								viewBox="0 0 978 491">
-
 								<g>
 									<path d="M221.1,205.9c0,3-1.4,4.5-4.3,4.5H165c-2.8,0-4.3-1.7-4.3-5.1c0-9.9,0.4-24.7,1.1-44.4
 		c0.7-19.7,1.1-34.6,1.1-44.4c0-2.8-0.4-4.3-1.3-4.5c-1.1,0.6-7.6,15.7-19.6,45.3c-7,17.4-14.1,34.8-21.1,52.1c-1,2.2-2.2,3.6-3.7,4
@@ -85,6 +89,7 @@ const Header = () => {
 			</div>
 		</header>
 	);
-};
+}
+;
 
 export default Header;

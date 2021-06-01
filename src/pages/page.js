@@ -5,6 +5,8 @@ import {
 } from "react-router-dom";
 import { images } from '../image-data/image-data';
 import ProgressiveImage from "react-progressive-graceful-image";
+import { useDispatch } from 'react-redux'
+import { change } from '../store/headerColorSlice'
 
 //Ease
 const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] };
@@ -47,9 +49,20 @@ const letter = {
   },
 };
 
-const Model = ({ imageDetails }) => {
+
+
+const Model = () => {
+  const dispatch = useDispatch();
   let { id } = useParams();
   id = parseInt(id);
+
+  //estetica
+  useEffect(() => {
+    dispatch(change(images[id].dark ? 'dark' : 'light'));
+  }, [id, dispatch])
+
+
+  // navigazione
   let previousId = id - 1;
   if (previousId < 0) {
     previousId = 0;
@@ -58,9 +71,10 @@ const Model = ({ imageDetails }) => {
   if (nextId > images.lastIndex) {
     nextId = images.lastIndex;
   }
+
+  // animazione
   const { scrollYProgress } = useViewportScroll();
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
-
   const [canScroll, setCanScroll] = useState(false);
 
   useEffect(() => {
@@ -78,6 +92,7 @@ const Model = ({ imageDetails }) => {
     <motion.span variants={letter} key={idx}>{lettera}</motion.span>
   );
 
+  // contenuto
   return (
     <motion.div
       onAnimationComplete={() => setCanScroll(true)}
@@ -87,83 +102,107 @@ const Model = ({ imageDetails }) => {
       exit='exit'>
       <div className='container fluid'>
         <div className='row center top-row'>
-          <div className='top'>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                transition: { delay: 1.2, ...transition },
+          <div className='scroller-wrapper'>
+            <motion.div className='scroller'
+              transition={transition}
+              initial={{
+                width: "auto",
+                height: "auto"
               }}
-              className='details'>
-              <div><Link to={{ pathname: `/page/${previousId}/` }}>Precedente</Link></div>
-              <div><Link to={{ pathname: `/page/${nextId}/` }}>Successivo</Link></div>
-            </motion.div>
-            <motion.div className='model'>
-              <motion.span className='first' variants={firstName}>
-                {animazioneLettereNome}
-              </motion.span>
-              <motion.span className='last' variants={lastName}>
-                {animazioneLettereCognome}
-              </motion.span>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
               animate={{
-                opacity: 1,
-                y: 0,
-                transition: { delay: 1.2, ...transition },
+                transition: { delay: 0.2, ...transition },
+                width: "100vw",
+                height: "50vh",
               }}
-              className='page-buttons'>
-              <a href="#informazioni" className="link button">Informazioni</a>
-              <a href="#informazioni" className="link button">Visualizza pagina</a>
-            </motion.div>
-          </div>
-        </div>
-        <div className='row bottom-row'>
-          <div className='bottom'>
-            <motion.div className='image-container-single'>
+            >
               <motion.div
+                className='scroller-img-wrapper'
+                transition={transition}
                 initial={{
-                  y: "-40vh",
-                  width: 350
+                  boxShadow: "0 10px 20px rgba(0, 0, 0, 0.5)",
+                  borderRadius: "10px",
                 }}
                 animate={{
-                  y: 0,
-                  width: "100%",
-                  height: window.innerWidth > 1440 ? "50vh" : "50vh",
                   transition: { delay: 0.2, ...transition },
-                }}
-                className='thumbnail-single'>
+                  boxShadow: "0 0px 0px rgba(0, 0, 0, 0)",
+                  borderRadius: "0px",
+                }}>
                 <motion.div
                   className='frame-single'
                   whileHover='hover'
-                  transition={transition}>
+                  transition={transition}
+                  initial={{
+                    height: "auto",
+
+                    //width: "100%",
+
+                  }}
+                  animate={{
+                    transition: { delay: 0.2, ...transition },
+                    height: "50vh",
+                    //width: "auto",
+
+                  }}
+                >
                   <ProgressiveImage
                     src={images[id].full}
                     placeholder={images[id].thumb}>
                     {(src) => (<motion.img
                       src={src}
-                      alt='an image'
-                      style={{ scale: scale }}
-                      initial={{ scale: 1.0 }}
-                      animate={{
-                        transition: { delay: 0.2, ...transition },
-                        y: window.innerWidth > 1440 ? 0 : 0, // scostamento verso l'alto
-                      }}
+                      alt={images[id].nome}
+                    /*
+                    style={{ scale: scale }}
+                    initial={{ scale: 1.0 }}
+                    animate={{
+                      transition: { delay: 0.2, ...transition },
+
+                    }}*/
                     />)}</ProgressiveImage>
                 </motion.div>
               </motion.div>
             </motion.div>
           </div>
+
+        </div>
+        <div className='row bottom-row'> <div className='top'>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              transition: { delay: 1.2, ...transition },
+            }}
+            className='details'>
+            <div><Link to={{ pathname: `/page/${previousId}/` }}>Precedente</Link></div>
+            <div><Link to={{ pathname: `/` }}>Indice</Link></div>
+            <div><Link to={{ pathname: `/page/${nextId}/` }}>Successivo</Link></div>
+          </motion.div>
+          <motion.div className='model'>
+            <motion.span className='first' variants={firstName}>
+              {animazioneLettereNome}
+            </motion.span>
+            <motion.span className='last' variants={lastName}>
+              {animazioneLettereCognome}
+            </motion.span>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              transition: { delay: 1.2, ...transition },
+            }}
+            className='page-buttons'>
+            <a href="#informazioni" className="link button">Informazioni</a>
+            <a href="#informazioni" className="link button">Visualizza pagina</a>
+          </motion.div>
+        </div>
+
         </div>
       </div>
       <div className='detailed-information'>
         <div className='container'>
           <div className='row'>
-            {/* <h2 className='title'>
-              VISUALIZZA PAGINA
-                    </h2>*/}
             <div id="informazioni" dangerouslySetInnerHTML={{ __html: images[id].text }}></div>
           </div>
         </div>
