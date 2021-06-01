@@ -1,14 +1,17 @@
 $main: #ffffff;
 $white: #ffffff;
 $black: #253081;
+$background: rgba($black, 70%);
+$font-base: 'Corbell', 'Cantarell', 'HelveticaNeue-CondensedBold', -apple-system,
+  BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, 'Open Sans',
+  'Helvetica Neue', sans-serif;
+$font-title: 'Merriweather', serif;
 
 @import url('https://fonts.googleapis.com/css2?family=Cantarell:wght@400;700&family=Merriweather:ital,wght@1,700&display=swap');
 
 * {
   box-sizing: border-box;
-  font-family: 'Corbell', 'Cantarell', 'HelveticaNeue-CondensedBold',
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: $font-base;
   font-weight: 700;
 }
 
@@ -69,16 +72,7 @@ body {
     width: 100%;
     max-width: 100%;
     padding: 0;
-  } /*
-  @media (min-width: 1024px) {
-    max-width: 960px;
   }
-  @media (min-width: 1216px) {
-    max-width: 1152px;
-  }
-  @media (min-width: 1408px) {
-    max-width: 1560px;
-  }*/
 
   .row {
     display: flex;
@@ -92,12 +86,32 @@ body {
   }
 }
 
+.link.button {
+  cursor: pointer;
+  border-radius: 23px;
+  padding: 12px 32px;
+  border: 2px solid $black;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease-in-out;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $black;
+  &:hover {
+    color: $white;
+    background: $black;
+  }
+}
+
 header {
   font-size: 16px;
   position: fixed;
   z-index: 99;
   width: 100%;
   font-weight: '700';
+  background-color: $white;
   .container {
     .row {
       height: 128px;
@@ -107,26 +121,28 @@ header {
           text-decoration: none;
         }
       }
-      .menu {
-        cursor: pointer;
-        border-radius: 23px;
-        padding: 12px 32px;
-        border: 2px solid $black;
-        height: 46px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: 0.3s ease-in-out;
-        &:hover {
-          color: $white;
-          background: $black;
-        }
-      }
     }
   }
 }
 
+#mazal_tov_logo {
+  fill: $black;
+  width: 180px;
+  @media (max-width: 768px) {
+    max-width: 25vw;
+  }
+}
+
 main {
+  h1.details {
+    text-align: left;
+    font-size: 4vw;
+    max-width: 75vw;
+    @media (max-width: 768px) {
+      max-width: 90vw;
+      font-size: 6vw;
+    }
+  }
   .container {
     position: relative;
     .row {
@@ -162,6 +178,26 @@ main {
         }
       }
     }
+    .top-row {
+      height: 50vh;
+      width: 100%;
+      align-items: flex-end;
+      .top {
+        .details {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+      }
+    }
+    .bottom-row {
+      height: 50vh;
+      position: relative;
+      .bottom {
+        height: 100%;
+        width: 100%;
+      }
+    }
   }
 }
 
@@ -173,18 +209,18 @@ main {
       width: 100%;
       align-items: flex-end;
       .top {
-        padding-bottom: 40px;
+        padding-bottom: 20px;
         .details {
+          width: 90vw;
           display: flex;
           align-items: center;
           justify-content: space-between;
-          .location {
-            span:nth-child(2) {
-              margin-left: 16px;
-            }
-          }
-          .mua {
-            text-transform: uppercase;
+        }
+        .page-buttons {
+          display: flex;
+          align-items: left;
+          a {
+            margin-right: 15px;
           }
         }
         .model {
@@ -196,24 +232,40 @@ main {
             display: inline-block;
             position: relative;
             font-weight: 400;
-            font-size: 180px;
-            font-family: 'Merriweather', serif;
-            @media (max-width: 1440px) {
-              font-size: 128px;
+            font-size: 9vw;
+            font-family: $font-title;
+            @media (max-width: 720px) {
+              font-size: 9vw;
             }
           }
         }
       }
     }
     .bottom-row {
-      height: 50vh;
+      min-height: 50vh;
       position: relative;
+      align-items: flex-start;
       .bottom {
         height: 100%;
         width: 100%;
+        background-color: $background;
         .thumbnail-single {
           width: 100%;
-          height: 800px;
+          //height: 800px;
+          margin: 0 auto;
+          overflow: hidden;
+          position: absolute;
+          left: 0;
+          right: 0;
+          .frame-single {
+            img {
+              position: absolute;
+              width: 100%;
+            }
+          }
+        }
+        .thumbnail {
+          width: 350px;
           margin: 0 auto;
           overflow: hidden;
           position: absolute;
@@ -227,51 +279,128 @@ main {
           }
         }
       }
-      .scroll-for-more {
-        position: absolute;
-        bottom: 200px;
-        left: 200px;
-        z-index: 20;
-        .icon {
-          svg {
-            height: auto;
-            width: 28px;
-          }
-        }
-        .text {
-          margin-top: 8px;
-          color: $white;
-          text-transform: uppercase;
-        }
-      }
     }
   }
 }
 
 .detailed-information {
-  margin-top: 200px;
-  height: 600px;
+  margin-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
   .container {
     .row {
       justify-content: space-between;
       align-items: flex-start;
       h2 {
         font-size: 28px;
+        width: 20vw;
       }
       p {
-        font-family: 'Corbell', 'Cantarell', 'HelveticaNeue-CondensedBold',
-          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-          'Open Sans', 'Helvetica Neue', sans-serif;
         font-size: 16;
         line-height: 28px;
         font-weight: 400;
-        width: 800px;
+        width: calc(80vw-20px);
       }
     }
   }
 }
 
-#mazal_tov_logo {
-  fill: $black;
-  width: 180px;
+h1 {
+  font-family: $font-title;
+}
+
+/* scroller */
+
+.next,
+.prev {
+  top: calc(50% - 20px);
+  position: absolute;
+  background: white;
+  border-radius: 30px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  z-index: 2;
+}
+
+.next {
+  right: 10px;
+}
+
+.prev {
+  left: 10px;
+  transform: scale(-1);
+}
+
+.refresh {
+  padding: 10px;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  width: 20px;
+  height: 20px;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.scroller {
+  text-align: center;
+}
+
+.scroller-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background: $background;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .scroller-text {
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+    height: 35px;
+    font-size: 1.75vw;
+    font-weight: 300;
+    @media (max-width: 768px) {
+      font-size: 20px;
+    }
+  }
+  .scroller-img-wrapper {
+    border-radius: 10px;
+    overflow: hidden;
+    //height: calc(40vh - 45px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    background-color: #fbead2;
+    display: inline-block;
+    font-size: 0;
+    &:hover {
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      max-width: 80vw;
+    }
+    img {
+      height: 100%;
+      max-height: calc(40vh - 35px);
+      -webkit-user-drag: none;
+      @media (max-width: 768px) {
+        max-width: 80vw;
+        height: 110%;
+      }
+    }
+  }
 }

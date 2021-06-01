@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
+import {
+  useParams, Link
+} from "react-router-dom";
+import { images } from '../image-data/image-data';
+import ProgressiveImage from "react-progressive-graceful-image";
 
-//Components
-import ScrollForMore from "../components/scrollForMore";
 //Ease
 const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] };
 
@@ -45,6 +48,16 @@ const letter = {
 };
 
 const Model = ({ imageDetails }) => {
+  let { id } = useParams();
+  id = parseInt(id);
+  let previousId = id - 1;
+  if (previousId < 0) {
+    previousId = 0;
+  }
+  let nextId = id + 1;
+  if (nextId > images.lastIndex) {
+    nextId = images.lastIndex;
+  }
   const { scrollYProgress } = useViewportScroll();
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
 
@@ -57,6 +70,13 @@ const Model = ({ imageDetails }) => {
       document.querySelector("body").classList.remove("no-scroll");
     }
   }, [canScroll]);
+
+  const animazioneLettereNome = images[id].nome.replace(/ /g, '\u00a0').split("").map((lettera, idx) =>
+    <motion.span variants={letter} key={idx}>{lettera}</motion.span>
+  );
+  const animazioneLettereCognome = images[id].cognome.replace(/ /g, '\u00a0').split("").map((lettera, idx) =>
+    <motion.span variants={letter} key={idx}>{lettera}</motion.span>
+  );
 
   return (
     <motion.div
@@ -76,29 +96,27 @@ const Model = ({ imageDetails }) => {
                 transition: { delay: 1.2, ...transition },
               }}
               className='details'>
-              <div className='location'>
-                <span>28.538336</span>
-                <span>-81.379234</span>
-              </div>
-              <div className='mua'>MUA: @mylifeascrystall</div>
+              <div><Link to={{ pathname: `/page/${previousId}/` }}>Precedente</Link></div>
+              <div><Link to={{ pathname: `/page/${nextId}/` }}>Successivo</Link></div>
             </motion.div>
             <motion.div className='model'>
               <motion.span className='first' variants={firstName}>
-                <motion.span variants={letter}>Y</motion.span>
-                <motion.span variants={letter}>a</motion.span>
-                <motion.span variants={letter}>s</motion.span>
-                <motion.span variants={letter}>m</motion.span>
-                <motion.span variants={letter}>e</motion.span>
-                <motion.span variants={letter}>e</motion.span>
-                <motion.span variants={letter}>n</motion.span>
+                {animazioneLettereNome}
               </motion.span>
               <motion.span className='last' variants={lastName}>
-                <motion.span variants={letter}>T</motion.span>
-                <motion.span variants={letter}>a</motion.span>
-                <motion.span variants={letter}>r</motion.span>
-                <motion.span variants={letter}>i</motion.span>
-                <motion.span variants={letter}>q</motion.span>
+                {animazioneLettereCognome}
               </motion.span>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: { delay: 1.2, ...transition },
+              }}
+              className='page-buttons'>
+              <a href="#informazioni" className="link button">Informazioni</a>
+              <a href="#informazioni" className="link button">Visualizza pagina</a>
             </motion.div>
           </div>
         </div>
@@ -107,14 +125,13 @@ const Model = ({ imageDetails }) => {
             <motion.div className='image-container-single'>
               <motion.div
                 initial={{
-                  y: "-50%",
-                  width: imageDetails.width,
-                  height: imageDetails.height,
+                  y: "-40vh",
+                  width: 350
                 }}
                 animate={{
                   y: 0,
                   width: "100%",
-                  height: window.innerWidth > 1440 ? 800 : 400,
+                  height: window.innerWidth > 1440 ? "50vh" : "50vh",
                   transition: { delay: 0.2, ...transition },
                 }}
                 className='thumbnail-single'>
@@ -122,43 +139,32 @@ const Model = ({ imageDetails }) => {
                   className='frame-single'
                   whileHover='hover'
                   transition={transition}>
-                  <motion.img
-                    src={require("../images/_resized/01.jpg").default}
-                    alt='an image'
-                    style={{ scale: scale }}
-                    initial={{ scale: 1.0 }}
-                    animate={{
-                      transition: { delay: 0.2, ...transition },
-                      y: window.innerWidth > 1440 ? 0 : 0,
-                    }}
-                  />
+                  <ProgressiveImage
+                    src={images[id].full}
+                    placeholder={images[id].thumb}>
+                    {(src) => (<motion.img
+                      src={src}
+                      alt='an image'
+                      style={{ scale: scale }}
+                      initial={{ scale: 1.0 }}
+                      animate={{
+                        transition: { delay: 0.2, ...transition },
+                        y: window.innerWidth > 1440 ? 0 : 0, // scostamento verso l'alto
+                      }}
+                    />)}</ProgressiveImage>
                 </motion.div>
               </motion.div>
             </motion.div>
           </div>
-          <ScrollForMore />
         </div>
       </div>
       <div className='detailed-information'>
         <div className='container'>
           <div className='row'>
-            <h2 className='title'>
-              The insiration behind the artwork & <br /> what it means.
-            </h2>
-            <p>
-              Contrary to popular belief, Lorem Ipsum is not simply random text.
-              It has roots in a piece of classical Latin literature from 45 BC,
-              making it over 2000 years old. Richard McClintock, a Latin
-              professor at Hampden-Sydney College in Virginia, looked up one of
-              the more obscure Latin words, consectetur, from a Lorem Ipsum
-              passage, and going through the cites of the word in classical
-              literature, discovered the undoubtable source. Lorem Ipsum comes
-              from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et
-              Malorum" (The Extremes of Good and Evil) by Cicero, written in 45
-              BC. This book is a treatise on the theory of ethics, very popular
-              during the Renaissance. The first line of Lorem Ipsum, "Lorem
-              ipsum dolor sit amet..", comes from a line in section 1.10.32.
-            </p>
+            {/* <h2 className='title'>
+              VISUALIZZA PAGINA
+                    </h2>*/}
+            <div id="informazioni" dangerouslySetInnerHTML={{ __html: images[id].text }}></div>
           </div>
         </div>
       </div>
