@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { motion, useViewportScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   useParams, Link
 } from "react-router-dom";
@@ -73,8 +73,6 @@ const Model = () => {
   }
 
   // animazione
-  const { scrollYProgress } = useViewportScroll();
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
   const [canScroll, setCanScroll] = useState(false);
 
   useEffect(() => {
