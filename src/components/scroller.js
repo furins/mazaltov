@@ -27,19 +27,11 @@ const variants = {
   },
 };
 
-const variantsTitle = {
-  center: {
-    zIndex: 1,
-    height: "35px",
-    opacity: 1,
-  },
-  exit: {
-    zIndex: 0,
-    height: 0,
-    opacity: 0,
-  }
-  ,
+const titleVariants = {
+  exiting: { opacity: 0, height: 0 },
+  normal: { opacity: 1, height: "43px" },
 };
+
 
 
 /**
@@ -55,6 +47,7 @@ const swipePower = (offset: number, velocity: number) => {
 
 export const Scroller = () => {
   const [[page, direction], setPage] = useState([0, 0]);
+  const [isExiting, setIsExiting] = useState(false)
   const history = useHistory();
 
 
@@ -71,6 +64,7 @@ export const Scroller = () => {
   const isDragging = useRef(false);
   function onTap(event, info) {
     if (!isDragging.current) {
+      setIsExiting(isExiting => true)
       history.push('/page/' + imageIndex + '/')
     }
 
@@ -123,13 +117,8 @@ export const Scroller = () => {
                 />)}</ProgressiveImage>
           </span>
           <motion.div
-            variants={variantsTitle}
-            animate="center"
-            exit="exit"
-            transition={{
-              height: { duration: 0.2 },
-              opacity: { duration: 0.2 },
-            }}
+            animate={isExiting ? 'exiting' : 'normal'}
+            variants={titleVariants}
             className="scroller-text">{images[imageIndex].nome} {images[imageIndex].cognome}
           </motion.div>
         </motion.div>

@@ -102,19 +102,15 @@ const Model = () => {
       exit='exit'>
       <div className='container fluid'>
         <div className='row center top-row'>
-          <div className='scroller-wrapper'>
-            <motion.div className='scroller'
-              transition={transition}
-              initial={{
-                width: "auto",
-                height: "auto"
-              }}
-              animate={{
-                transition: { delay: 0.2, ...transition },
-                width: "100vw",
-                height: "50vh",
-              }}
-            >
+          <motion.div className='scroller-wrapper'
+            transition={transition}
+            initial={{
+              backgroundColor: "rgba(37, 48, 129, 0.7)",
+            }}
+            animate={{
+              backgroundColor: "#ffffff",
+            }}>
+            <div className='scroller'>
               <motion.div
                 className='scroller-img-wrapper'
                 transition={transition}
@@ -130,19 +126,6 @@ const Model = () => {
                 <motion.div
                   className='frame-single'
                   whileHover='hover'
-                  transition={transition}
-                  initial={{
-                    height: "auto",
-
-                    //width: "100%",
-
-                  }}
-                  animate={{
-                    transition: { delay: 0.2, ...transition },
-                    height: "50vh",
-                    //width: "auto",
-
-                  }}
                 >
                   <ProgressiveImage
                     src={images[id].full}
@@ -150,18 +133,19 @@ const Model = () => {
                     {(src) => (<motion.img
                       src={src}
                       alt={images[id].nome}
-                    /*
-                    style={{ scale: scale }}
-                    initial={{ scale: 1.0 }}
-                    animate={{
-                      transition: { delay: 0.2, ...transition },
-
-                    }}*/
+                      transition={transition}
+                      initial={{
+                        width: "350px",
+                      }}
+                      animate={{
+                        transition: { delay: 0.2, ...transition },
+                        width: "108vw",
+                      }}
                     />)}</ProgressiveImage>
                 </motion.div>
               </motion.div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
 
         </div>
         <div className='row bottom-row'> <div className='top'>
