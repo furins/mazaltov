@@ -580,4 +580,11 @@ h1 {
 .indice {
   padding-top: 150px;
   text-align: left;
+  ul {
+    column-count: 3;
+  }
+  a {
+    color: $black;
+    text-decoration: none;
+  }
 }

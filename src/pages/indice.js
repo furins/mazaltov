@@ -12,6 +12,8 @@ function Indice() {
     //estetica
     useEffect(() => {
         dispatch(change('light'));
+        window.scrollTo(0, 0);
+
     }, [dispatch])
 
     const listItems = images.map((elemento, index) =>
@@ -27,7 +29,7 @@ function Indice() {
                 transition: { duration: 0.6, ...transition },
             }}
             exit={{ opacity: 0 }}>
-            INDICE
+            <h2>INDICE</h2>
             <ul>{listItems}</ul>
         </motion.div>
     );
