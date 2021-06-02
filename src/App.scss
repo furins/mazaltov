@@ -103,6 +103,16 @@ body {
   &:hover {
     color: $white;
     background: $black;
+    a {
+      color: $white;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: $black;
+    &:hover {
+      color: $white;
+    }
   }
 }
 .link.button.left {
@@ -238,12 +248,14 @@ main {
 
 //single
 .single {
+  margin-bottom: 15vh;
   .scroller-img-wrapper {
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
     background-color: #fbead2;
     display: inline-block;
     font-size: 0;
+
     &:hover {
       cursor: pointer;
     }
@@ -530,4 +542,42 @@ h1 {
   @media (max-width: 480px) {
     max-height: calc(49vh - 78px);
   }
+}
+
+.menu {
+  background-color: $black;
+  color: $white;
+  display: none;
+  z-index: 1000;
+  padding: 10vh 10vw;
+  text-align: center;
+  font-size: 120%;
+  ul {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      padding-bottom: 10px;
+    }
+    a {
+      color: $white;
+      text-decoration: none;
+    }
+    span {
+      display: inline-block;
+      border-top: 1px solid $white;
+      margin-top: 5px;
+      padding-top: 10px;
+      cursor: pointer;
+    }
+  }
+}
+
+.showMenu {
+  display: block;
+}
+
+.indice {
+  padding-top: 150px;
+  text-align: left;
 }

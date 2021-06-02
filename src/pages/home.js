@@ -8,7 +8,7 @@ const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] };
 
 function Home() {
   const dispatch = useDispatch();
-  //estetica
+  document.querySelector("body").classList.add("no-scroll");
   useEffect(() => {
     dispatch(change('light'));
   }, [dispatch]);

@@ -10,6 +10,7 @@ import { change } from '../store/headerColorSlice'
 
 //Ease
 const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] };
+document.querySelector("body").classList.remove("no-scroll");
 
 const firstName = {
   initial: {
@@ -59,6 +60,7 @@ const Model = () => {
   //estetica
   useEffect(() => {
     dispatch(change(images[id].dark ? 'dark' : 'light'));
+    window.scrollTo(0, 0);
   }, [id, dispatch])
 
 

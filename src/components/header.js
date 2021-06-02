@@ -1,6 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux'
+import { motion } from "framer-motion";
+
+const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] };
+
 
 function Header() {
 	const headerColor = useSelector(function (state) {
@@ -9,6 +13,51 @@ function Header() {
 
 	return (
 		<header className={headerColor}>
+			<motion.div
+				className="menu fullheight"
+				initial={{ y: "-100vh" }}
+				animate={{
+					y: 0,
+					transition: { duration: 0.6, ...transition },
+				}}
+				exit={{ y: "100vh", transition: { duration: 0.6, ...transition } }}>
+				<ul>
+					<li>
+						<Link to='/' onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); }}>
+							HOME PAGE
+						</Link>
+					</li>
+					<li>
+						<Link to='/indice/' onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); }}>
+							INDICE DEI NOMI
+							</Link>
+					</li>
+					<li >
+						<a href="https://meis.museum/mostre/mazal-tov/" target="_blank" rel="noreferrer" onClick={() => {
+							document.querySelector(".menu").classList.remove("showMenu");
+						}}>
+							LA MOSTRA
+						</a>
+					</li>
+					<li>
+						<Link to='/sponsor/' onClick={() => {
+							document.querySelector(".menu").classList.remove("showMenu");
+						}}>
+							SPONSOR
+						</Link>
+					</li>
+					<li>
+						<a href="https://meis.museum/la-fondazione/sostieni/" target="_blank" rel="noreferrer">
+							SOSTIENICI
+							</a>
+					</li>
+					<li>
+						<span onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); }}>
+							CHIUDI
+						</span>
+					</li>
+				</ul>
+			</motion.div>
 			<div className='container'>
 				<div className='row space-between'>
 					<div className='logo'>
@@ -84,12 +133,13 @@ function Header() {
 								</g>
 							</svg></Link>
 					</div>
-					<div className='link button'>MENU</div>
+					<div className='link button' onClick={() => {
+						document.querySelector(".menu").classList.add("showMenu");
+					}}>MENU</div>
 				</div>
 			</div>
 		</header>
 	);
-}
-;
+};
 
 export default Header;

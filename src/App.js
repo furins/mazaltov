@@ -6,8 +6,12 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/home";
 import Model from "./pages/page";
 import ZoomPage from "./pages/zoom";
+import Indice from "./pages/indice";
+import Sponsor from "./pages/sponsor";
+
 //components
 import Header from "./components/header";
+
 //Styles
 import "./App.scss";
 
@@ -34,6 +38,16 @@ class App extends Component {
                   exact
                   path='/zoom/:id/'
                   render={() => <ZoomPage />}
+                />
+                <Route
+                  exact
+                  path='/indice/'
+                  render={() => <Indice />}
+                />
+                <Route
+                  exact
+                  path='/sponsor/'
+                  render={() => <Sponsor />}
                 />
               </Switch>
             </AnimatePresence>

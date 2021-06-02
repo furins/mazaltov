@@ -5,7 +5,7 @@ export default configureStore({
     preloadedState: {
         headerColor: {
             value: 'light undefined',
-        }
+        },
     },
     reducer: {
         headerColor: headerColorReducer,
