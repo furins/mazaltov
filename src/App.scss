@@ -140,7 +140,7 @@ header {
           text-decoration: none;
         }
       }
-      @media (max-width: 768px) {
+      @media (max-width: 480px) {
         height: 85px;
       }
     }
@@ -582,6 +582,12 @@ h1 {
   text-align: left;
   ul {
     column-count: 3;
+    @media (max-width: 768px) {
+      column-count: 2;
+    }
+    @media (max-width: 480px) {
+      column-count: 1;
+    }
   }
   a {
     color: $black;

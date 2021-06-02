@@ -17,7 +17,7 @@ function Indice() {
     }, [dispatch])
 
     const listItems = images.map((elemento, index) =>
-        <li><Link to={{ pathname: `/page/${index}/` }}>{elemento.nome} {elemento.cognome}</Link></li>
+        <li key={index}><Link to={{ pathname: `/page/${index}/` }}>{elemento.nome} {elemento.cognome}</Link></li>
     );
 
     return (
