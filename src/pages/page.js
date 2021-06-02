@@ -138,7 +138,7 @@ const Model = () => {
                         }}
                         animate={{
                           transition: { delay: 0.2, ...transition },
-                          width: "108vw",
+                          width: "130vw",
                         }}
                       />)}</ProgressiveImage>
                   </motion.div>
@@ -148,18 +148,7 @@ const Model = () => {
 
           </div>
           <div className='row bottom-row'> <div className='top'>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                transition: { delay: 1.2, ...transition },
-              }}
-              className='details'>
-              <div><Link to={{ pathname: `/page/${previousId}/` }} className="link button">←</Link></div>
-              <div><Link to={{ pathname: `/` }} className="link button">↑</Link></div>
-              <div><Link to={{ pathname: `/page/${nextId}/` }} className="link button">→</Link></div>
-            </motion.div>
+
             <motion.div className='model'>
               <motion.span className='first' variants={firstName}>
                 {animazioneLettereNome}
@@ -168,16 +157,16 @@ const Model = () => {
                 {animazioneLettereCognome}
               </motion.span>
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                transition: { delay: 1.2, ...transition },
-              }}
-              className='page-buttons'>
-              <Link to={{ pathname: `/zoom/${id}/` }} className="link button">Ingrandisci pagina</Link>
-            </motion.div>
+            <div
+              className='details shrinkable'>
+              <div><Link title="pagina precedente" to={{ pathname: `/page/${previousId}/` }} className="link button">←</Link></div>
+              <div className="nowrap">
+                <Link title="indice" to={{ pathname: `/` }} className="link button left">↑</Link>
+                <Link title="ingrandisci" to={{ pathname: `/zoom/${id}/` }} className="link button right"><span className='icn icn-find'></span></Link>
+              </div>
+              <div><Link title="pagina successiva" to={{ pathname: `/page/${nextId}/` }} className="link button">→</Link></div>
+            </div>
+
           </div>
 
           </div>
