@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 //Pages
 import Home from "./pages/home";
 import Model from "./pages/page";
+import ZoomPage from "./pages/zoom";
 //components
 import Header from "./components/header";
 //Styles
@@ -26,8 +27,13 @@ class App extends Component {
                 />
                 <Route
                   exact
-                  path='/page/:id'
+                  path='/page/:id/'
                   render={() => <Model />}
+                />
+                <Route
+                  exact
+                  path='/zoom/:id/'
+                  render={() => <ZoomPage />}
                 />
               </Switch>
             </AnimatePresence>
