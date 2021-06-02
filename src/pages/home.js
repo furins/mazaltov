@@ -22,7 +22,7 @@ function Home() {
               exit={{ opacity: 0, height: 0 }}
               transition={transition} className='row center top-row'>
               <div className='top'>
-                <h1 className="details">Album in onore delle nozze fra Corrado Lopez e Ada Sadun</h1>
+                <img className="album" src={require("../images/album.png").default} alt="Album in onore delle nozze fra Corrado Lopez e Ada Sadun" />
               </div>
             </motion.div>
             <div className='row bottom-row'>
