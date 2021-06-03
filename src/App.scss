@@ -610,6 +610,9 @@ h1 {
 
 .loghi {
   column-count: 2;
+  @media (max-width: 600px) {
+    column-count: 1;
+  }
 }
 
 .nobreak {
@@ -646,6 +649,10 @@ h1 {
     font-size: 300%;
     margin-bottom: 5px;
     font-family: $font-title;
+    @media (max-width: 480px) {
+      font-size: 200%;
+      padding-right: 1em;
+    }
   }
   h4 {
     margin-top: 0px;
@@ -671,9 +678,13 @@ h1 {
   .loghi {
     margin-top: 15vh;
     margin-bottom: 15vh;
+
     .logo {
       max-height: 15vh;
       margin-top: 10px;
+      @media (max-width: 600px) {
+        margin-bottom: 5vh;
+      }
     }
     .imgText {
       display: flex;
@@ -681,6 +692,7 @@ h1 {
 
       span {
         padding-left: 1em;
+        padding-right: 1em;
         display: inline-block;
       }
     }
