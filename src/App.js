@@ -46,7 +46,7 @@ class App extends Component {
                 />
                 <Route
                   exact
-                  path='/sponsor/'
+                  path='/colophon/'
                   render={() => <Sponsor />}
                 />
               </Switch>

@@ -40,10 +40,10 @@ function Header() {
 						</a>
 					</li>
 					<li>
-						<Link to='/sponsor/' onClick={() => {
+						<Link to='/colophon/' onClick={() => {
 							document.querySelector(".menu").classList.remove("showMenu");
 						}}>
-							SPONSOR
+							COLOPHON
 						</Link>
 					</li>
 					<li>
