@@ -12,10 +12,11 @@ function Header() {
 	})
 
 	return (
-		<header className={headerColor}>
+		<header className={headerColor} style={{ zIndex: 9999 }}>
 			<motion.div
 				className="menu fullheight"
 				initial={{ y: "-100vh" }}
+
 				animate={{
 					y: 0,
 					transition: { duration: 0.6, ...transition },
@@ -63,7 +64,7 @@ function Header() {
 					</li>
 				</ul>
 			</motion.div>
-			<div className='container'>
+			<div className='container' >
 				<div className='row space-between'>
 					<div className='logo'>
 						<Link to='/'>

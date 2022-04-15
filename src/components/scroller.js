@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { wrap } from 'popmotion';
 import { images } from '../image-data/image-data';
 import ProgressiveImage from "react-progressive-graceful-image";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const variants = {
   enter: (direction: number) => {
@@ -48,7 +48,7 @@ const swipePower = (offset: number, velocity: number) => {
 export const Scroller = () => {
   const [[page, direction], setPage] = useState([0, 0]);
   const [isExiting, setIsExiting] = useState(false)
-  const history = useHistory();
+  let navigate = useNavigate();
 
 
   // We only have 3 images, but we paginate them absolutely (ie 1, 2, 3, 4, 5...) and
@@ -65,7 +65,7 @@ export const Scroller = () => {
   function onTap(event, info) {
     if (!isDragging.current) {
       setIsExiting(isExiting => true)
-      history.push('/page/' + imageIndex + '/')
+      navigate('/page/' + imageIndex + '/')
     }
 
   }

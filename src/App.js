@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { AnimatePresence } from "framer-motion";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter, useLocation } from "react-router-dom";
 
 //Pages
 import Lopez from "./pages/lopez";
@@ -16,50 +16,46 @@ import Header from "./components/header";
 //Styles
 import "./App.scss";
 
+function PagineSito() {
+  let location = useLocation();
+  return (
+
+    <AnimatePresence initial={false} exitBeforeEnter>
+      <Routes location={location} key={location.pathname}>
+        <Route exact path='/' element={<Mappa />} />
+        <Route exact path='/lopez' element={<Lopez />} />
+
+
+        <Route exact path='/page/:id/' element={<Model />} />
+
+
+        <Route exact path='/zoom/:id/' element={<ZoomPage />} />
+
+
+        <Route
+          exact
+          path='/indice/' element={<Indice />}
+        />
+        <Route
+          exact
+          path='/colophon/' element={<Sponsor />}
+        />
+      </Routes>
+    </AnimatePresence >
+
+  );
+}
+
 class App extends Component {
   render() {
     return (
-      <Router>
+
+      <BrowserRouter>
         <Header />
-        <Route
-          render={({ location }) => (
-            <AnimatePresence initial={false} exitBeforeEnter>
-              <Switch location={location} key={location.pathname}>
-                <Route
-                  exact
-                  path='/'
-                  render={() => <Mappa />}
-                />
-                <Route
-                  exact
-                  path='/lopez'
-                  render={() => <Lopez />}
-                />
-                <Route
-                  exact
-                  path='/page/:id/'
-                  render={() => <Model />}
-                />
-                <Route
-                  exact
-                  path='/zoom/:id/'
-                  render={() => <ZoomPage />}
-                />
-                <Route
-                  exact
-                  path='/indice/'
-                  render={() => <Indice />}
-                />
-                <Route
-                  exact
-                  path='/colophon/'
-                  render={() => <Sponsor />}
-                />
-              </Switch>
-            </AnimatePresence>
-          )}
-        />
-      </Router>
+        <PagineSito />
+      </BrowserRouter>
+
+
     );
   }
 }

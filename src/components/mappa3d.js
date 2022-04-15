@@ -1,11 +1,9 @@
-import React, { useState, Suspense } from 'react'
-import { Canvas, useThree } from '@react-three/fiber'
-import { useSelector } from 'react-redux'
+import React, { useState, Suspense, Component } from 'react'
+import { Canvas } from '@react-three/fiber'
 import { proxy, useSnapshot } from 'valtio'
 
-import { OrbitControls, TransformControls, ContactShadows, useGLTF, useCursor } from '@react-three/drei'
+import { OrbitControls, ContactShadows, useGLTF, useCursor } from '@react-three/drei'
 
-const modes = ['translate', 'rotate', 'scale']
 const state = proxy({ current: null, mode: 0 })
 const colori = {
     "tetto": "#6e7396",
@@ -61,8 +59,6 @@ function Model({ name, ...props }) {
             // If a click happened but this mesh wasn't hit we null out the target,
             // This works because missed pointers fire before the actual hits
             onPointerMissed={(e) => e.type === 'click' && (state.current = null)}
-            // Right click cycles through the transform modes
-            onContextMenu={(e) => snap.current === name && (e.stopPropagation(), (state.mode = (snap.mode + 1) % modes.length))}
             onPointerOver={(e) => {
                 e.stopPropagation();
                 setHovered(true)
@@ -78,31 +74,17 @@ function Model({ name, ...props }) {
     )
 }
 
-function Controls() {
-    // Get notified on changes to state
-    const snap = useSnapshot(state)
-    const scene = useThree((state) => state.scene)
-    return (
-        <>
-            {/* As of drei@7.13 transform-controls can refer to the target by children, or the object prop */}
-            {snap.current && <TransformControls object={scene.getObjectByName(snap.current)} mode={modes[snap.mode]} />}
-            {/* makeDefault makes the controls known to r3f, now transform-controls can auto-disable them when active */}
-            {/* <OrbitControls makeDefault minPolarAngle={0} maxPolarAngle={Math.PI / 1.75} target={[0.1, 0, 0]} /> */}
-            <OrbitControls makeDefault target={[0, 0, 0]} />
-        </>
-    )
-}
+class Mappa3D extends Component {
+    constructor() {
+        super();
+        this.canvas = React.createRef()
+    }
 
-function Mappa3D(props) {
-    const headerColor = useSelector(function (state) {
-        return state.headerColor.value.payload
-    })
-
-    return (
-        <header className={headerColor} style={{ height: `50vh` }}>
-            <Canvas camera={{ position: [0, 0.25, 0], fov: 30 }} dpr={[1, 2]}>
-                {/* <pointLight position={[100, 100, 100]} intensity={0.8} /> */}
-                {/* <hemisphereLight color="#ffffff" groundColor="#b9b9b9" position={[-7, 25, 13]} intensity={0.85} /> */}
+    render() {
+        return (
+            <Canvas camera={{ position: [0, 0.45, 0], fov: 10 }} dpr={[1, 2]} style={{ zIndex: -9999, position: 'relative' }}>
+                <pointLight position={[100, 100, 100]} intensity={0.8} />
+                <hemisphereLight color="#ffffff" groundColor="#b9b9b9" position={[-7, 25, 13]} intensity={0.85} />
                 <Suspense fallback={<Loading />}>
                     <group name='ketuppah' position={[0.0227, 0.025, -0.0155]} rotation={[0, Math.PI, 0]} visible={false}>
                         <Model name="tetto" />
@@ -111,8 +93,7 @@ function Mappa3D(props) {
                         <Model name="tetto003" />
                         <Model name="tetto004" />
                     </group>
-                    <group position={[0.1, 0, -0.04]} rotation={[0, Math.PI, 0]}>
-
+                    <group position={[0.1, -0.004, -0.04]} rotation={[0, Math.PI, 0]} scale={[1, 0.2, 1]}>
                         <Model name="perimetro_esterno" />
                     </group>
                     <group position={[0.1, -0.005, -0.04]} rotation={[0, Math.PI, 0]}>
@@ -132,10 +113,11 @@ function Mappa3D(props) {
                         <ContactShadows rotation-x={Math.PI / 2} position={[0, -1, 0]} opacity={0.25} width={200} height={200} blur={1} far={50} />
                     </group>
                 </Suspense>
-                <Controls />
+                <OrbitControls ref={this.canvas} makeDefault target={[0, 0, 0]} />
             </Canvas>
-        </header>
-    );
+
+        );
+    }
 }
 
 export default Mappa3D;
