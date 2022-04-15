@@ -1,7 +1,7 @@
 module.exports = {
   reactScriptsVersion: "react-scripts" /* (default value) */,
   webpack: {
-    configure: {
+      configure: {
       module: {
         rules: [
           {

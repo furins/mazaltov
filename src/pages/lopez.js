@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 
 const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] };
 
-function Home() {
+function Lopez() {
   const dispatch = useDispatch();
   document.querySelector("body").classList.add("no-scroll");
   useEffect(() => {
@@ -39,4 +39,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Lopez;

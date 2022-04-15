@@ -3,7 +3,8 @@ import { AnimatePresence } from "framer-motion";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //Pages
-import Home from "./pages/home";
+import Lopez from "./pages/lopez";
+import Mappa from "./pages/mappa";
 import Model from "./pages/page";
 import ZoomPage from "./pages/zoom";
 import Indice from "./pages/indice";
@@ -27,7 +28,12 @@ class App extends Component {
                 <Route
                   exact
                   path='/'
-                  render={() => <Home />}
+                  render={() => <Mappa />}
+                />
+                <Route
+                  exact
+                  path='/lopez'
+                  render={() => <Lopez />}
                 />
                 <Route
                   exact

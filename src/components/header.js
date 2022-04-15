@@ -28,9 +28,14 @@ function Header() {
 						</Link>
 					</li>
 					<li>
+						<Link to='/lopez' onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); }}>
+							ALBUM IN ONORE DELLE NOZZE FRA CORRADO LOPEZ E ADA SADUN
+						</Link>
+					</li>
+					<li>
 						<Link to='/indice/' onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); }}>
 							INDICE DEI NOMI
-							</Link>
+						</Link>
 					</li>
 					<li >
 						<a href="https://meis.museum/mostre/mazal-tov/" target="_blank" rel="noreferrer" onClick={() => {
@@ -49,7 +54,7 @@ function Header() {
 					<li>
 						<a href="https://meis.museum/la-fondazione/sostieni/" target="_blank" rel="noreferrer">
 							SOSTIENICI
-							</a>
+						</a>
 					</li>
 					<li>
 						<span onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); }}>
