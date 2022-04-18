@@ -40,7 +40,7 @@ function Header() {
 						</Link>
 					</li>
 					<li >
-						<a href="https://meis.museum/mostre/mazal-tov/" target="_blank" rel="noreferrer" onClick={() => {
+						<a href="/" onClick={() => {
 							document.querySelector(".menu").classList.remove("showMenu");
 						}}>
 							LA MOSTRA

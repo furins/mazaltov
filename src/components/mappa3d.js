@@ -2,7 +2,7 @@ import React, { useState, Suspense, useRef } from 'react'
 import { Canvas, extend, useThree, useFrame } from '@react-three/fiber'
 import { proxy, useSnapshot } from 'valtio'
 import * as THREE from 'three'
-import { ContactShadows, useGLTF, useCursor } from '@react-three/drei'
+import { ContactShadows, useGLTF, useCursor, Html } from '@react-three/drei'
 import CameraControls from 'camera-controls';
 CameraControls.install({ THREE })
 
@@ -15,7 +15,7 @@ extend({ CameraControls })
 
 
 
-const Controls = ({ target }) => {
+const Controls = ({ target, setTarget }) => {
 
     const ref = useRef()
     const camera = useThree((state) => state.camera)
@@ -27,10 +27,7 @@ const Controls = ({ target }) => {
         const fov = camera.fov * THREE.MathUtils.DEG2RAD;
         const rendererHeight = gl.getSize(new THREE.Vector2()).height;
 
-        console.log("scene: ", scene)
-        console.log("mesh: ", mesh)
         const meshObj = scene.getObjectByName(mesh)
-        console.log("meshObj: ", meshObj)
 
         const boundingBox = new THREE.Box3().setFromObject(meshObj);
         const size = boundingBox.getSize(new THREE.Vector3());
@@ -68,11 +65,23 @@ const Controls = ({ target }) => {
 
     if (typeof (ref.current) !== "undefined")
         if (target === 'miao') {
+            meshVisibile["tetto"] = false
+            meshVisibile["tetto001"] = false
+            meshVisibile["tetto002"] = false
+            meshVisibile["tetto003"] = false
+            meshVisibile["tetto004"] = false
             paddingInCssPixel(ref.current, 'perimetro_esterno', 10, 10, 10, 10);
+            setTarget("")
             // ref.current.rotateTo(0, DEG90, true);
         }
-        else {
+        else if (target === 'ciao') {
+            meshVisibile["tetto"] = true
+            meshVisibile["tetto001"] = true
+            meshVisibile["tetto002"] = true
+            meshVisibile["tetto003"] = true
+            meshVisibile["tetto004"] = true
             ref.current.rotateTo(DEG06, -1 * DEG45, true);
+            setTarget("")
         }
 
     useFrame((state, delta) => ref.current.update(delta))
@@ -103,6 +112,28 @@ const colori = {
     "perimetro_esterno": "#253081",
 }
 
+let meshVisibile = {
+    "tetto": false,
+    "tetto001": false,
+    "tetto002": false,
+    "tetto003": false,
+    "tetto004": false,
+    "sala01": true,
+    "sala11": true,
+    "sala12": true,
+    "sala13": true,
+    "sala14": true,
+    "sala21": true,
+    "sala31": true,
+    "sala32": true,
+    "sala33": true,
+    "sala34": true,
+    "sala35": true,
+    "sala41": true,
+    "sala51": true,
+    "perimetro_esterno": true,
+}
+
 function Loading() {
     return (
         <mesh visible position={[0, 0, 0]} rotation={[0, 0, 0]}>
@@ -119,7 +150,31 @@ function Loading() {
     );
 }
 
-function Model({ name, ...props }) {
+const hotspotStore = {
+    "outside": { color: 'lightpink', position: [0.0227, -0.004, -0.0155], url: '/2294472375_24a3b8ef46_o.jpg', link: 1 },
+    "inside": { color: 'lightblue', position: [0.1, -0.004, -0.04], url: '/Photosphere1.jpg', link: 0 }
+}
+
+function Hotspot({ name, setPagina, ...props }) {
+    const [hovered, setHovered] = useState(false)
+    useCursor(hovered)
+
+    return (<mesh position={hotspotStore[name].position}
+        onClick={(e) => { e.stopPropagation(); state.current = name; if (setPagina) setPagina(name); }}
+        onPointerMissed={(e) => e.type === 'click' && (state.current = null)}
+        onPointerOver={(e) => {
+            e.stopPropagation();
+            setHovered(true);
+        }}
+        onPointerOut={(e) => setHovered(false)}
+        {...props}
+        dispose={null}>
+        <sphereGeometry args={[0.003, 32, 32]} />
+        <meshBasicMaterial color="red" />
+    </mesh>)
+}
+
+function Model({ name, setPagina, ...props }) {
     // Ties this component to the state model
     const snap = useSnapshot(state)
     // Fetching the GLTF, nodes is a collection of all the meshes
@@ -128,16 +183,27 @@ function Model({ name, ...props }) {
     // Feed hover state into useCursor, which sets document.body.style.cursor to pointer|auto
     const [hovered, setHovered] = useState(false)
     useCursor(hovered)
+
     return (
         <mesh
             // Click sets the mesh as the new target
-            onClick={(e) => { e.stopPropagation(); state.current = name }}
+            onClick={(e) => {
+                if (meshVisibile[name]) {
+                    e.stopPropagation();
+                    if (setPagina) {
+                        setPagina(name);
+                    }
+                }
+            }}
             // If a click happened but this mesh wasn't hit we null out the target,
             // This works because missed pointers fire before the actual hits
             onPointerMissed={(e) => e.type === 'click' && (state.current = null)}
             onPointerOver={(e) => {
-                e.stopPropagation();
-                setHovered(true)
+                if (meshVisibile[name]) {
+                    e.stopPropagation();
+                    setHovered(true);
+                    if (name !== "perimetro_esterno") state.current = name;
+                }
             }}
             onPointerOut={(e) => setHovered(false)}
             name={name}
@@ -156,32 +222,37 @@ const Mappa3D = (props) => {
         <pointLight position={[100, 100, 100]} intensity={0.8} />
         <hemisphereLight color="#ffffff" groundColor="#b9b9b9" position={[-7, 25, 13]} intensity={0.85} />
         <Suspense fallback={<Loading />}>
-            <group name='ketuppah' position={[0.0227, 0.025, -0.0155]} rotation={[0, Math.PI, 0]} visible={false}>
-                <Model name="tetto" />
-                <Model name="tetto001" />
-                <Model name="tetto002" />
-                <Model name="tetto003" />
-                <Model name="tetto004" />
+            <group name="hotspots">
+                <Hotspot name="outside" setPagina={props.setPagina} />
+                <Hotspot name="inside" setPagina={props.setPagina} />
+            </group>
+            <group name='ketuppah' position={[0.0227, 0.020, -0.0155]} rotation={[0, Math.PI, 0]} >
+                <Model name="tetto" visible={meshVisibile["tetto"]} />
+                <Model name="tetto001" visible={meshVisibile["tetto001"]} />
+                <Model name="tetto002" visible={meshVisibile["tetto002"]} />
+                <Model name="tetto003" visible={meshVisibile["tetto003"]} />
+                <Model name="tetto004" visible={meshVisibile["tetto004"]} />
             </group>
             <group position={[0.1, -0.004, -0.04]} rotation={[0, Math.PI, 0]} scale={[1, 0.2, 1]}>
                 <Model name="perimetro_esterno" />
             </group>
             <group position={[0.1, -0.005, -0.04]} rotation={[0, Math.PI, 0]}>
-                <Model name="sala01" />
-                <Model name="sala11" />
-                <Model name="sala12" />
-                <Model name="sala13" />
-                <Model name="sala14" />
-                <Model name="sala21" />
-                <Model name="sala31" />
-                <Model name="sala32" />
-                <Model name="sala33" />
-                <Model name="sala34" />
-                <Model name="sala35" />
-                <Model name="sala41" />
-                <Model name="sala51" />
+                <Model name="sala01" setPagina={props.setPagina} />
+                <Model name="sala11" setPagina={props.setPagina} />
+                <Model name="sala12" setPagina={props.setPagina} />
+                <Model name="sala13" setPagina={props.setPagina} />
+                <Model name="sala14" setPagina={props.setPagina} />
+                <Model name="sala21" setPagina={props.setPagina} />
+                <Model name="sala31" setPagina={props.setPagina} />
+                <Model name="sala32" setPagina={props.setPagina} />
+                <Model name="sala33" setPagina={props.setPagina} />
+                <Model name="sala34" setPagina={props.setPagina} />
+                <Model name="sala35" setPagina={props.setPagina} />
+                <Model name="sala41" setPagina={props.setPagina} />
+                <Model name="sala51" setPagina={props.setPagina} />
                 <ContactShadows rotation-x={Math.PI / 2} position={[0, -1, 0]} opacity={0.25} width={200} height={200} blur={1} far={50} />
             </group>
+
         </Suspense>
         <Controls {...props} />
     </Canvas>;
