@@ -2,17 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux'
 import { motion } from "framer-motion";
+import { proxy, useSnapshot } from 'valtio'
 
 const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] };
-
+const state = proxy({ headerColor: 'light' })
 
 function Header() {
 	const headerColor = useSelector(function (state) {
 		return state.headerColor.value.payload
 	})
-
+	const snap = useSnapshot(state)
 	return (
-		<header className={headerColor} style={{ zIndex: 9999 }}>
+		<header className={snap.headerColor} style={{ zIndex: 9999 }}>
 			<motion.div
 				className="menu fullheight"
 				initial={{ y: "-100vh" }}
@@ -24,17 +25,17 @@ function Header() {
 				exit={{ y: "100vh", transition: { duration: 0.6, ...transition } }}>
 				<ul>
 					<li>
-						<Link to='/' onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); }}>
+						<Link to='/' onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); state.headerColor = 'light' }}>
 							HOME PAGE
 						</Link>
 					</li>
 					<li>
-						<Link to='/lopez' onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); }}>
+						<Link to='/lopez' onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); state.headerColor = 'light' }}>
 							ALBUM IN ONORE DELLE NOZZE FRA CORRADO LOPEZ E ADA SADUN
 						</Link>
 					</li>
 					<li>
-						<Link to='/indice/' onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); }}>
+						<Link to='/indice/' onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); state.headerColor = 'light' }}>
 							INDICE DEI NOMI
 						</Link>
 					</li>
@@ -48,6 +49,7 @@ function Header() {
 					<li>
 						<Link to='/colophon/' onClick={() => {
 							document.querySelector(".menu").classList.remove("showMenu");
+							state.headerColor = 'dark'
 						}}>
 							COLOPHON
 						</Link>

@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
-import { change } from '../store/headerColorSlice'
-import { useDispatch } from 'react-redux'
+import React from "react";
+
 import { useParams, Link } from "react-router-dom";
 import { images } from '../image-data/image-data';
 import { motion } from "framer-motion";
@@ -13,14 +12,11 @@ function Zoom() {
         return "zoom " + state.headerColor.value.payload
     })
 
-    const dispatch = useDispatch();
+
     let { id } = useParams();
     id = parseInt(id);
 
-    //estetica
-    useEffect(() => {
-        dispatch(change('dark'));
-    }, [id, dispatch])
+
 
     // navigazione
     let previousId = id - 1;

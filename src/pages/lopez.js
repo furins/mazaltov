@@ -1,17 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { motion, AnimateSharedLayout } from "framer-motion";
 import { Scroller } from "../components/scroller.js";
-import { change } from '../store/headerColorSlice'
-import { useDispatch } from 'react-redux'
+
 
 const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] };
 
 function Lopez() {
-  const dispatch = useDispatch();
+
   document.querySelector("body").classList.add("no-scroll");
-  useEffect(() => {
-    dispatch(change('light'));
-  }, [dispatch]);
+
 
   return (
     <>

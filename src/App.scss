@@ -462,7 +462,9 @@ h1 {
     }
   }
 }
-
+#mazal_tov_logo {
+  fill: $black;
+}
 .dark {
   #mazal_tov_logo {
     fill: $white;
@@ -623,8 +625,9 @@ h1 {
   padding-right: 10vw;
   padding-bottom: 15vh;
 }
+
+.darkbackground,
 .colophon {
-  min-height: 100vh;
   background-color: $black;
   color: $white;
   padding-top: 150px;
@@ -698,6 +701,11 @@ h1 {
     }
   }
 }
+
+.colophon {
+  min-height: 100vh;
+}
+
 .patrocini-wrapper {
   background-color: $white;
   color: $black;

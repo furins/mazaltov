@@ -58,6 +58,7 @@ const Model = () => {
   id = parseInt(id);
 
   //estetica
+  // FIXME va corretto, deve usare il nuovo metodo per gestire gli stati
   useEffect(() => {
     dispatch(change(images[id].dark ? 'dark' : 'light'));
     window.scrollTo(0, 0);

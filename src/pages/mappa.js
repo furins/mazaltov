@@ -1,37 +1,30 @@
-import React, { useEffect } from "react";
-import { AnimateSharedLayout } from "framer-motion";
-import { change } from '../store/headerColorSlice'
-import { useDispatch } from 'react-redux'
+import React from "react";
+import { motion, AnimateSharedLayout } from "framer-motion";
 import Mappa3D from "../components/mappa3d";
-import { useSelector } from 'react-redux'
+const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] };
 
 function Mappa() {
-    const dispatch = useDispatch();
-    var ref = React.createRef()
-
     document.querySelector("body").classList.add("no-scroll");
-    useEffect(() => {
-        dispatch(change('light'));
-    }, [dispatch]);
-    const headerColor = useSelector(function (state) {
-        return state.headerColor.value.payload
-    })
+    const [target, setTarget] = React.useState("miao");
+
     return (
         <>
             <main className="main">
                 <div className='container fluid'>
                     <AnimateSharedLayout>
-                        <div className='row top-row' >
-                            <header className={headerColor} style={{ height: `50vh` }}>
-                                <Mappa3D ref={ref} />
-                            </header>
-                            <div>
-                                <button onClick={e => console.log(ref.current.canvas)} style={{ top: `85px`, zIndex: 99999, position: "absolute" }}>CLICK</button>
+                        <motion.div
+                            exit={{ opacity: 0, height: `100vh` }}
+                            transition={transition} className='row center top-row'>
+                            <div className='row top-row' >
+                                <header style={{ height: `50vh` }}>
+                                    <Mappa3D target={target} />
+                                </header>
                             </div>
-                        </div>
+                        </motion.div>
                         <div className='row bottom-row'>
-                            <div className='bottom scroller-wrapper'>
-                                <span>Descrizione Sale</span>
+                            <div className='bottom darkbackground'>
+                                <button onClick={e => { setTarget("ciao") }}>Obiettivo ciao</button>
+                                <button onClick={e => { setTarget("miao") }}>Obiettivo miao</button>
                             </div>
                         </div>
                     </AnimateSharedLayout>
