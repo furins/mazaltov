@@ -5,6 +5,7 @@ import { Routes, Route, BrowserRouter, useLocation } from "react-router-dom";
 //Pages
 import Lopez from "./pages/lopez";
 import Mappa from "./pages/mappa";
+import Home from "./pages/home";
 import Model from "./pages/page";
 import ZoomPage from "./pages/zoom";
 import Indice from "./pages/indice";
@@ -22,7 +23,8 @@ function PagineSito() {
 
     <AnimatePresence initial={false} exitBeforeEnter>
       <Routes location={location} key={location.pathname}>
-        <Route exact path='/' element={<Mappa />} />
+        <Route exact path='/' element={<Home />} />
+        <Route exact path='/mappa' element={<Mappa />} />
         <Route exact path='/lopez' element={<Lopez />} />
 
 

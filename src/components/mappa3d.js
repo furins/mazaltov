@@ -2,7 +2,7 @@ import React, { useState, Suspense, useRef } from 'react'
 import { Canvas, extend, useThree, useFrame } from '@react-three/fiber'
 import { proxy, useSnapshot } from 'valtio'
 import * as THREE from 'three'
-import { ContactShadows, useGLTF, useCursor, Html } from '@react-three/drei'
+import { ContactShadows, useGLTF, useCursor } from '@react-three/drei'
 import CameraControls from 'camera-controls';
 CameraControls.install({ THREE })
 
@@ -96,19 +96,19 @@ const colori = {
     "tetto002": "#6e7396",
     "tetto003": "#6e7396",
     "tetto004": "#6e7396",
-    "sala01": "#c0c1c8",
-    "sala11": "#c0c1c8",
-    "sala12": "#c0c1c8",
-    "sala13": "#c0c1c8",
-    "sala14": "#c0c1c8",
-    "sala21": "#c0c1c8",
-    "sala31": "#c0c1c8",
-    "sala32": "#c0c1c8",
-    "sala33": "#c0c1c8",
-    "sala34": "#c0c1c8",
-    "sala35": "#c0c1c8",
-    "sala41": "#c0c1c8",
-    "sala51": "#c0c1c8",
+    "sala01": "#6f75af",
+    "sala11": "#6f75af",
+    "sala12": "#6f75af",
+    "sala13": "#6f75af",
+    "sala14": "#6f75af",
+    "sala21": "#6f75af",
+    "sala31": "#6f75af",
+    "sala32": "#6f75af",
+    "sala33": "#6f75af",
+    "sala34": "#6f75af",
+    "sala35": "#6f75af",
+    "sala41": "#6f75af",
+    "sala51": "#6f75af",
     "perimetro_esterno": "#253081",
 }
 
@@ -132,6 +132,28 @@ let meshVisibile = {
     "sala41": true,
     "sala51": true,
     "perimetro_esterno": true,
+}
+
+const meshHoverable = {
+    "tetto": false,
+    "tetto001": false,
+    "tetto002": false,
+    "tetto003": false,
+    "tetto004": false,
+    "sala01": true,
+    "sala11": true,
+    "sala12": true,
+    "sala13": true,
+    "sala14": true,
+    "sala21": true,
+    "sala31": true,
+    "sala32": true,
+    "sala33": true,
+    "sala34": true,
+    "sala35": true,
+    "sala41": true,
+    "sala51": true,
+    "perimetro_esterno": false,
 }
 
 function Loading() {
@@ -193,13 +215,17 @@ function Model({ name, setPagina, ...props }) {
                     if (setPagina) {
                         setPagina(name);
                     }
+                    if (meshHoverable[name]) {
+                        setHovered(true);
+                        if (name !== "perimetro_esterno") state.current = name;
+                    }
                 }
             }}
             // If a click happened but this mesh wasn't hit we null out the target,
             // This works because missed pointers fire before the actual hits
             onPointerMissed={(e) => e.type === 'click' && (state.current = null)}
             onPointerOver={(e) => {
-                if (meshVisibile[name]) {
+                if (meshHoverable[name]) {
                     e.stopPropagation();
                     setHovered(true);
                     if (name !== "perimetro_esterno") state.current = name;
@@ -208,24 +234,58 @@ function Model({ name, setPagina, ...props }) {
             onPointerOut={(e) => setHovered(false)}
             name={name}
             geometry={nodes[name].geometry}
-            //material={nodes[name].material}
-            material-color={snap.current === name ? '#ff6080' : colori[name]}
+
             {...props}
             dispose={null}
-        />
+        >
+            <meshStandardMaterial
+                attach="material"
+                color={snap.current === name ? '#797ea2' : colori[name]}
+                opacity={1.0}
+                transparent
+            />
+        </mesh>
     )
+}
+
+const LuciDisco = ({ pulsing, ...props }) => {
+    const lucegialla = useRef()
+    const luceverde = useRef()
+    const lucerossa = useRef()
+    const luceblu = useRef()
+    useFrame(({ clock }) => {
+        if (pulsing) {
+            lucegialla.current.intensity = 2 * ((clock.getElapsedTime() + 0.1) % 0.4);
+            luceverde.current.intensity = 2 * ((clock.getElapsedTime() + 0.2) % 0.4);
+            lucerossa.current.intensity = 2 * ((clock.getElapsedTime() + 0.3) % 0.4);
+            luceblu.current.intensity = 2 * ((clock.getElapsedTime() + 0.4) % 0.4);
+        } else {
+            lucegialla.current.intensity = 2
+            luceverde.current.intensity = 2
+            lucerossa.current.intensity = 2
+            luceblu.current.intensity = 2
+        }
+    })
+    return <>
+        <pointLight ref={lucerossa} position={[0.0535, -0.0025, -0.0155]} intensity={2} color="#ff0000" />
+        <pointLight ref={luceblu} position={[0.05, -0.0025, -0.01]} intensity={2} color="#0000ff" />
+        <pointLight ref={lucegialla} position={[0.05, -0.0025, -0.020]} intensity={2} color="#ffff00" />
+        <pointLight ref={luceverde} position={[0.06, -0.0025, -0.0155]} intensity={2} color="#00ff00" />
+    </>
 }
 
 const Mappa3D = (props) => {
     const canvasRef = useRef()
+
     return <Canvas ref={canvasRef} camera={{ position: [0, 0.45, 0], fov: 10 }} dpr={[1, 2]} style={{ zIndex: -9999, position: 'relative' }}>
-        <pointLight position={[100, 100, 100]} intensity={0.8} />
-        <hemisphereLight color="#ffffff" groundColor="#b9b9b9" position={[-7, 25, 13]} intensity={0.85} />
+        <pointLight position={[10, 10, 10]} intensity={2} />
+        <LuciDisco pulsing={true} />
+        {/*         <hemisphereLight color="#ffffff" groundColor="#b9b9b9" position={[-7, 25, 13]} intensity={0.85} /> */}
         <Suspense fallback={<Loading />}>
-            <group name="hotspots">
+            {/* <group name="hotspots">
                 <Hotspot name="outside" setPagina={props.setPagina} />
                 <Hotspot name="inside" setPagina={props.setPagina} />
-            </group>
+            </group> */}
             <group name='ketuppah' position={[0.0227, 0.020, -0.0155]} rotation={[0, Math.PI, 0]} >
                 <Model name="tetto" visible={meshVisibile["tetto"]} />
                 <Model name="tetto001" visible={meshVisibile["tetto001"]} />
