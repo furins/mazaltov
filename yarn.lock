@@ -5741,6 +5741,11 @@ history@^5.2.0:
   dependencies:
     "@babel/runtime" "^7.7.6"
 
+hls.js@1.1.5-0.canary.8330:
+  version "1.1.5-0.canary.8330"
+  resolved "https://registry.yarnpkg.com/hls.js/-/hls.js-1.1.5-0.canary.8330.tgz#d124127da2cbd972a2cc6baf76b72bdf7c0c53c1"
+  integrity sha512-DUvkZPYQFiQIh4IqhnHXkFI+sd5y16iLMcDCNNEmx9Tbsoz7SX/QegUYINfMFqGSKYnwH4bS0megdw5PRMtTbA==
+
 hmac-drbg@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/hmac-drbg/-/hmac-drbg-1.0.1.tgz#d2745701025a6c775a6c545793ed502fc0c649a1"
@@ -9295,6 +9300,11 @@ punycode@^2.1.0, punycode@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
+
+purecss@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/purecss/-/purecss-2.1.0.tgz#7d7eca2896e57a75cf7620ccf73aa42ded4ddc97"
+  integrity sha512-QIgWhat8QkHTXdejFJNwZuw0pZ7Mj0MHILHNz8sV6HZBfbWtHpW3b1+Q1D6W/9x4chFhaq9u4+Uk8YbwELzsXg==
 
 q@^1.1.2:
   version "1.5.1"

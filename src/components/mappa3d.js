@@ -15,7 +15,7 @@ extend({ CameraControls })
 
 
 
-const Controls = ({ target, setTarget }) => {
+const Controls = ({ target, setTarget, rotazione, canvasRef }) => {
 
     const ref = useRef()
     const camera = useThree((state) => state.camera)
@@ -62,27 +62,13 @@ const Controls = ({ target, setTarget }) => {
         cameraControls.fitToBox(meshObj, true, { paddingLeft: paddingLeft, paddingRight: paddingRight, paddingBottom: paddingBottom, paddingTop: paddingTop });
 
     }
+    if (typeof (ref.current) !== "undefined") {
+        paddingInCssPixel(ref.current, 'perimetro_esterno', 10, 10, 10, 10);
+        if (rotazione != null) {
+            ref.current.rotateTo(rotazione[0], rotazione[1], true);
+        }
 
-    if (typeof (ref.current) !== "undefined")
-        if (target === 'miao') {
-            meshVisibile["tetto"] = false
-            meshVisibile["tetto001"] = false
-            meshVisibile["tetto002"] = false
-            meshVisibile["tetto003"] = false
-            meshVisibile["tetto004"] = false
-            paddingInCssPixel(ref.current, 'perimetro_esterno', 10, 10, 10, 10);
-            setTarget("")
-            // ref.current.rotateTo(0, DEG90, true);
-        }
-        else if (target === 'ciao') {
-            meshVisibile["tetto"] = true
-            meshVisibile["tetto001"] = true
-            meshVisibile["tetto002"] = true
-            meshVisibile["tetto003"] = true
-            meshVisibile["tetto004"] = true
-            ref.current.rotateTo(DEG06, -1 * DEG45, true);
-            setTarget("")
-        }
+    }
 
     useFrame((state, delta) => ref.current.update(delta))
     return <cameraControls ref={ref} args={[camera, gl.domElement]} />
@@ -196,7 +182,7 @@ function Hotspot({ name, setPagina, ...props }) {
     </mesh>)
 }
 
-function Model({ name, setPagina, ...props }) {
+function Model({ name, setPagina, target, ...props }) {
     // Ties this component to the state model
     const snap = useSnapshot(state)
     // Fetching the GLTF, nodes is a collection of all the meshes
@@ -205,6 +191,7 @@ function Model({ name, setPagina, ...props }) {
     // Feed hover state into useCursor, which sets document.body.style.cursor to pointer|auto
     const [hovered, setHovered] = useState(false)
     useCursor(hovered)
+
 
     return (
         <mesh
@@ -276,6 +263,21 @@ const LuciDisco = ({ pulsing, ...props }) => {
 
 const Mappa3D = (props) => {
     const canvasRef = useRef()
+    console.log(props.target)
+    if (props.target === 'chuppah') {
+        console.log(props.target)
+        meshVisibile["tetto"] = true
+        meshVisibile["tetto001"] = true
+        meshVisibile["tetto002"] = true
+        meshVisibile["tetto003"] = true
+        meshVisibile["tetto004"] = true
+    } else {
+        meshVisibile["tetto"] = false
+        meshVisibile["tetto001"] = false
+        meshVisibile["tetto002"] = false
+        meshVisibile["tetto003"] = false
+        meshVisibile["tetto004"] = false
+    }
 
     return <Canvas ref={canvasRef} camera={{ position: [0, 0.45, 0], fov: 10 }} dpr={[1, 2]} style={{ zIndex: -9999, position: 'relative' }}>
         <pointLight position={[10, 10, 10]} intensity={2} />
@@ -314,10 +316,10 @@ const Mappa3D = (props) => {
             </group>
 
         </Suspense>
-        <Controls {...props} />
+        <Controls canvasRef={canvasRef} {...props} />
     </Canvas>;
 }
 
-
+export { DEG06, DEG45, DEG90 }
 
 export default Mappa3D;

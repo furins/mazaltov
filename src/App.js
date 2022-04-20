@@ -7,6 +7,8 @@ import Lopez from "./pages/lopez";
 import Mappa from "./pages/mappa";
 import Home from "./pages/home";
 import Model from "./pages/page";
+import Culture from "./pages/matrimonio-culture";
+import Foto from "./pages/polaroid";
 import ZoomPage from "./pages/zoom";
 import Indice from "./pages/indice";
 import Sponsor from "./pages/sponsor";
@@ -26,6 +28,8 @@ function PagineSito() {
         <Route exact path='/' element={<Home />} />
         <Route exact path='/mappa' element={<Mappa />} />
         <Route exact path='/lopez' element={<Lopez />} />
+        <Route exact path='/culture' element={<Culture />} />
+        <Route exact path='/foto' element={<Foto />} />
 
 
         <Route exact path='/page/:id/' element={<Model />} />

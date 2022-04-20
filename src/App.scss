@@ -2,12 +2,19 @@ $main: #ffffff;
 $white: #ffffff;
 $black: #253081;
 $background: rgba($black, 100%);
-$font-base: 'Corbell', 'Cantarell', 'HelveticaNeue-CondensedBold', -apple-system,
-  BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, 'Open Sans',
-  'Helvetica Neue', sans-serif;
-$font-title: 'Merriweather', serif;
+$font-base: Oxygen, Ubuntu, 'Open Sans', 'Helvetica Neue', sans-serif;
+$font-title: 'MazalTov', serif;
 
-@import url('https://fonts.googleapis.com/css2?family=Cantarell:wght@400;700&family=Merriweather:ital,wght@1,700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Cantarell:wght@400;700&family=Merriweather:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+@font-face {
+  font-family: 'MazalTov';
+  src: local('MazalTov'), url(./fonts/mazaltov.woff) format('woff');
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+
+@import '~purecss/build/grids-responsive-min.css';
 
 * {
   box-sizing: border-box;
@@ -100,6 +107,7 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   color: $black;
+  background-color: rgba($white, 40%);
   &:hover {
     color: $white;
     background: $black;
@@ -146,7 +154,12 @@ header {
     }
   }
 }
-
+.st0 {
+  fill: rgba($white, 40%);
+}
+.st1 {
+  fill: #253080;
+}
 #mazal_tov_logo {
   width: 180px;
   transition: fill 2s;
@@ -386,8 +399,15 @@ main {
   }
 }
 
-h1 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: $font-title;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 /* scroller */
@@ -733,7 +753,95 @@ h1 {
   gap: 12px;
   margin-bottom: 60px;
   margin-top: 30px;
+}
 
+.buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  gap: 5px;
+  flex-wrap: wrap;
+  a {
+    margin-right: 5px;
+  }
+}
+
+.with-buttons {
+  line-height: 150%;
+}
+
+.right {
+  float: right;
+}
+
+.hidden {
+  display: none;
+}
+
+#sezione {
+  padding: 0 10vw;
+  @media (max-width: 600px) {
+    padding: 0 5vw;
+  }
+}
+
+.container--page {
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0 5vw;
+
+  .row {
+    display: flex;
+    &.space-between {
+      justify-content: space-between;
+    }
+    &.center {
+      justify-content: center;
+    }
+  }
+
+  h2 {
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+
+  p {
+    color: #666;
+    font-weight: normal;
+  }
+
+  .quote {
+    font-style: italic;
+  }
+}
+
+.pure-g > div {
+  box-sizing: border-box;
+}
+.l-box {
+  padding: 1em;
+  &:first-of-type {
+    padding-left: 0;
+  }
+  &:last-of-type {
+    padding-right: 0;
+  }
+}
+
+.w-box {
+  padding: 1em;
+  height: 100%;
+}
+
+.inverted,
+.fascia {
+  color: $white;
+  background-color: $background;
   .link--stanza {
     border-radius: 30px;
     border: 2px solid $white;
@@ -743,22 +851,67 @@ h1 {
     min-width: 10rem;
     height: 40px;
     text-align: center;
+    &.small {
+      min-width: 40px;
+    }
+  }
+
+  h2 {
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+
+  p {
+    font-weight: normal;
+    color: $white;
+  }
+
+  .quote {
+    font-style: italic;
+    color: $white;
   }
 }
 
-.video-responsive {
-  min-width: 80vw;
-  overflow: hidden;
-  // padding-bottom: 56.25%;
-  padding-bottom: 45%;
-  position: relative;
-  height: 0;
+.fascia {
+  padding: 0 5vw;
 }
 
-.video-responsive iframe {
-  left: 0;
-  top: 0;
-  height: 100%;
+.p-15 {
+  padding: 15px;
+}
+
+.fregio {
+  max-width: 960px;
+  margin: 0 auto 2vh auto;
+  display: block;
+}
+
+.spacer-30 {
+  height: 30px;
+}
+
+.spacer-90 {
+  height: 90px;
+}
+
+.cover-video {
+  object-fit: cover;
+  width: 100vw;
+  height: 50vh;
+}
+
+img.responsive {
   width: 100%;
-  position: absolute;
+  padding: 10px;
+}
+
+.didascalia {
+}
+.didascalia--titolo {
+  font-size: 130%;
+}
+.didascalia--prestatore {
+}
+.didascalia--descrizione {
 }

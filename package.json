@@ -13,6 +13,8 @@
     "@testing-library/user-event": "^12.1.10",
     "camera-controls": "^1.34.2",
     "framer-motion": "^6.3.0",
+    "hls.js": "1.1.5-0.canary.8330",
+    "purecss": "^2.1.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-progressive-graceful-image": "^0.6.13",
