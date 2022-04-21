@@ -7,6 +7,7 @@ const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] };
 
 function Mappa() {
     document.querySelector("body").classList.remove("no-scroll");
+    window.scrollTo(0, 0);
     const [target, setTarget] = React.useState("default");
     const [pagina, setPagina] = React.useState("home");
 

@@ -6,7 +6,7 @@ $font-base: Oxygen, Ubuntu, 'Open Sans', 'Helvetica Neue', sans-serif;
 $font-title: 'MazalTov', serif;
 
 // @import url('https://fonts.googleapis.com/css2?family=Cantarell:wght@400;700&family=Merriweather:ital,wght@1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&family=Oxygen:wght@300;400;700&display=swap');
 @font-face {
   font-family: 'MazalTov';
   src: local('MazalTov'), url(./fonts/mazaltov.woff) format('woff');
@@ -52,7 +52,7 @@ body {
   50% {
     transform: translate(-15%, 10%);
   }
-  60% {
+  58% {
     transform: translate(15%, 0%);
   }
   70% {
@@ -914,4 +914,67 @@ img.responsive {
 .didascalia--prestatore {
 }
 .didascalia--descrizione {
+}
+.stellato {
+  background-image: url(./images/background_stelle.png);
+  background-repeat: repeat;
+  background-size: 20%;
+}
+
+.polaroid {
+  cursor: pointer;
+  display: block;
+  box-sizing: border-box;
+  padding: 3vh 4vw;
+  text-align: center;
+  @media (min-width: 768px) {
+    padding: 3vh 2vw;
+  }
+}
+
+.polaroid--btn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  border: none;
+  width: 100%;
+  padding: 20px;
+  height: calc(83.33vw + 40px);
+  @media (min-width: 768px) {
+    height: calc(30.56vw + 40px);
+  }
+}
+
+.polaroid--img {
+  cursor: pointer;
+  height: calc(70vw - 20px);
+  @media (min-width: 768px) {
+    height: calc(24vw - 20px);
+  }
+}
+
+.polaroid--text {
+  cursor: pointer;
+  text-align: center;
+  font-family: 'Ms Madi', cursive;
+  font-size: 3vh;
+  color: $black;
+  padding-top: 1.5vh;
+  line-height: 100%;
+  @media (min-width: 480px) {
+    font-size: 4vh;
+  }
+  @media (min-width: 768px) {
+    padding-top: 2vh;
+    font-size: 3.1vh;
+  }
+  @media (min-width: 950px) {
+    font-size: 3.4vh;
+  }
+  @media (min-width: 1200px) {
+    padding-top: 2.5vh;
+    font-size: 3.7vh;
+  }
 }
