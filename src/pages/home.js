@@ -8,7 +8,6 @@ import { Polaroid } from "../components/polaroid";
 const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] };
 
 function loadVideo(video) {
-    console.log(video);
     var videoSrc = 'https://videodelivery.net/e6b5da35c5d46e342d8ec348dcda36e3/manifest/video.m3u8';
 
     if (Hls.isSupported()) {
@@ -65,22 +64,22 @@ function Indice() {
                 >
                     <div className="pure-g" style={{ width: `90vw` }}>
                         <motion.div className="card pure-u-1 pure-u-md-1-3" variants={cardVariants} style={isMobile ? { y: `-20vh`, x: `5vw`, rotate: 0 } : { y: `-17vh`, x: `30vw`, rotate: -20 }}>
-                            <Polaroid to='/presentazione' callback={() => { state.headerColor = 'light' }} title="Presentazione" />
+                            <Polaroid src="https://placekitten.com/600/600?image=13" to='/presentazione' callback={() => { state.headerColor = 'light' }} title="Presentazione" />
                         </motion.div>
                         <motion.div className="card pure-u-1 pure-u-md-1-3" variants={cardVariants} style={isMobile ? { y: `-20vh`, x: `5vw`, rotate: 0 } : { y: `-17vh`, x: `20vw`, rotate: 10 }}>
-                            <Polaroid to='/visita' callback={() => { state.headerColor = 'light' }} title="Visita virtuale" />
+                            <Polaroid src="https://placekitten.com/600/600?image=14" to='/visita' callback={() => { state.headerColor = 'light' }} title="Visita virtuale" />
                         </motion.div>
                         <motion.div className="card pure-u-1 pure-u-md-1-3" variants={cardVariants} style={isMobile ? { y: `-20vh`, x: `5vw`, rotate: 0 } : { y: `-17vh`, x: `-50vw`, rotate: 3 }}>
-                            <Polaroid to='/mostra' callback={() => { state.headerColor = 'light' }} title="La mostra" />
+                            <Polaroid src="https://placekitten.com/600/600?image=15" to='/mostra' callback={() => { state.headerColor = 'light' }} title="La mostra" />
                         </motion.div>
                         <motion.div className="card pure-u-1 pure-u-md-1-3" variants={cardVariants} style={isMobile ? { y: `-65vh`, x: 0, rotate: 0 } : { y: scostamento, x: `61vw`, rotate: -11 }}>
-                            <Polaroid to='/lopez' callback={() => { state.headerColor = 'light' }} title="Album di nozze Lopez-Sadun" />
+                            <Polaroid src="https://placekitten.com/600/600?image=16" to='/lopez' callback={() => { state.headerColor = 'light' }} title="Album di nozze Lopez-Sadun" />
                         </motion.div>
                         <motion.div className="card pure-u-1 pure-u-md-1-3" variants={cardVariants} style={isMobile ? { y: `-110vh`, x: `-5vw`, rotate: 0 } : { y: scostamento, x: `-35vw`, rotate: -15 }}>
-                            <Polaroid to='/foto' callback={() => { state.headerColor = 'light' }} title="Foto matrimoni" />
+                            <Polaroid src="https://placekitten.com/600/600?image=11" to='/foto' callback={() => { state.headerColor = 'light' }} title="Foto matrimoni" />
                         </motion.div>
                         <motion.div className="card pure-u-1 pure-u-md-1-3" variants={cardVariants} style={isMobile ? { y: `-155vh`, x: `5vw`, rotate: 0 } : { y: scostamento, x: `-11vw`, rotate: 12 }}>
-                            <Polaroid to='/culture' callback={() => { state.headerColor = 'light' }} title="Il matrimonio nelle diverse culture" />
+                            <Polaroid src="https://placekitten.com/600/600?image=12" to='/culture' callback={() => { state.headerColor = 'light' }} title="Il matrimonio nelle diverse culture" />
                         </motion.div>
                         {/* <motion.div className="card pure-u-1 pure-u-md-1-3" variants={cardVariants} style={isMobile ? { y: `-20vh`, x: `5vw`, rotate: 0 } : { y: scostamento * 2.2, x: `-40vw`, rotate: -20 }}>
                             <Polaroid to='/mappa' callback={() => { state.headerColor = 'light' }} title="Musiche" />

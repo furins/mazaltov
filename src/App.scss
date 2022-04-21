@@ -930,6 +930,7 @@ img.responsive {
 }
 
 .polaroid {
+  text-decoration: none;
   cursor: pointer;
   display: block;
   box-sizing: border-box;
@@ -965,6 +966,7 @@ img.responsive {
 
 .polaroid--text {
   cursor: pointer;
+  text-decoration: none;
   text-align: center;
   font-family: 'Ms Madi', cursive;
   font-size: 3vh;
@@ -984,5 +986,58 @@ img.responsive {
   @media (min-width: 1200px) {
     padding-top: 2.5vh;
     font-size: 3.7vh;
+  }
+}
+
+.bottone--sx,
+.bottone--cx,
+.bottone--dx {
+  display: inline-block;
+  text-decoration: none;
+
+  border: 2px solid $white;
+  color: $white;
+  background-color: transparent;
+  text-align: center;
+
+  font-size: 18px;
+  width: 30px;
+  min-width: 30px;
+  height: 30px;
+  min-height: 30px;
+  line-height: 28px;
+  border-radius: 20px;
+
+  @media (min-width: 768px) {
+    font-size: 24px;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    min-height: 40px;
+    line-height: 38px;
+    border-radius: 30px;
+  }
+}
+
+.bottone--sx {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.bottone--cx {
+  border-radius: 0;
+  border-left-width: 0;
+  border-right-width: 0;
+}
+.bottone--dx {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.navigazione--sale {
+  clear: left;
+  float: right;
+
+  @media (min-width: 768px) {
+    clear: none;
   }
 }

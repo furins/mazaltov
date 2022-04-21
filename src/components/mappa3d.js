@@ -158,29 +158,29 @@ function Loading() {
     );
 }
 
-const hotspotStore = {
-    "outside": { color: 'lightpink', position: [0.0227, -0.004, -0.0155], url: '/2294472375_24a3b8ef46_o.jpg', link: 1 },
-    "inside": { color: 'lightblue', position: [0.1, -0.004, -0.04], url: '/Photosphere1.jpg', link: 0 }
-}
+// const hotspotStore = {
+//     "outside": { color: 'lightpink', position: [0.0227, -0.004, -0.0155], url: '/2294472375_24a3b8ef46_o.jpg', link: 1 },
+//     "inside": { color: 'lightblue', position: [0.1, -0.004, -0.04], url: '/Photosphere1.jpg', link: 0 }
+// }
 
-function Hotspot({ name, setPagina, ...props }) {
-    const [hovered, setHovered] = useState(false)
-    useCursor(hovered)
+// function Hotspot({ name, setPagina, ...props }) {
+//     const [hovered, setHovered] = useState(false)
+//     useCursor(hovered)
 
-    return (<mesh position={hotspotStore[name].position}
-        onClick={(e) => { e.stopPropagation(); state.current = name; if (setPagina) setPagina(name); }}
-        onPointerMissed={(e) => e.type === 'click' && (state.current = null)}
-        onPointerOver={(e) => {
-            e.stopPropagation();
-            setHovered(true);
-        }}
-        onPointerOut={(e) => setHovered(false)}
-        {...props}
-        dispose={null}>
-        <sphereGeometry args={[0.003, 32, 32]} />
-        <meshBasicMaterial color="red" />
-    </mesh>)
-}
+//     return (<mesh position={hotspotStore[name].position}
+//         onClick={(e) => { e.stopPropagation(); state.current = name; if (setPagina) setPagina(name); }}
+//         onPointerMissed={(e) => e.type === 'click' && (state.current = null)}
+//         onPointerOver={(e) => {
+//             e.stopPropagation();
+//             setHovered(true);
+//         }}
+//         onPointerOut={(e) => setHovered(false)}
+//         {...props}
+//         dispose={null}>
+//         <sphereGeometry args={[0.003, 32, 32]} />
+//         <meshBasicMaterial color="red" />
+//     </mesh>)
+// }
 
 function Model({ name, setPagina, target, ...props }) {
     // Ties this component to the state model
@@ -263,9 +263,7 @@ const LuciDisco = ({ pulsing, ...props }) => {
 
 const Mappa3D = (props) => {
     const canvasRef = useRef()
-    console.log(props.target)
     if (props.target === 'chuppah') {
-        console.log(props.target)
         meshVisibile["tetto"] = true
         meshVisibile["tetto001"] = true
         meshVisibile["tetto002"] = true

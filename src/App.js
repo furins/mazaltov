@@ -20,6 +20,8 @@ import Header from "./components/header";
 
 //Styles
 import "./App.scss";
+import Chuppah from "./contents/sezioni/chuppah";
+import Quiddushin from "./contents/sezioni/quiddushin";
 
 function PagineSito() {
   let location = useLocation();
@@ -32,14 +34,17 @@ function PagineSito() {
         <Route exact path='/visita' element={<Visita />} />
         <Route exact path='/mostra' element={<Mappa />} />
         <Route exact path='/lopez' element={<Lopez />} />
-        <Route exact path='/page/:id/' element={<Model />} />
-        <Route exact path='/zoom/:id/' element={<ZoomPage />} />
-        <Route exact path='/indice/' element={<Indice />} />
+        <Route exact path='/page/:id' element={<Model />} />
+        <Route exact path='/zoom/:id' element={<ZoomPage />} />
+        <Route exact path='/indice' element={<Indice />} />
 
         <Route exact path='/foto' element={<Foto />} />
         <Route exact path='/culture' element={<Culture />} />
 
-        <Route exact path='/colophon/' element={<Sponsor />} />
+        <Route exact path='/colophon' element={<Sponsor />} />
+
+        <Route exact path='/chuppah' element={<Chuppah />} />
+        <Route exact path='/quiddushin' element={<Quiddushin />} />
       </Routes>
     </AnimatePresence >
 

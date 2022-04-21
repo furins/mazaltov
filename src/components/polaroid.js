@@ -8,4 +8,7 @@ export const Polaroid = ({ src, alt, title, callback, to }) => {
             <div className="polaroid--text">{title}</div>
         </button>
     </Link>
+
+
+
 }
