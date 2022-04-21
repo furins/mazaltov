@@ -2,29 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { proxy } from 'valtio'
-import Hls from 'hls.js';
 import fregio from '../images/fregio.svg'
 
 
 
 const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] };
 
-function loadVideo(video) {
-    console.log(video);
-    var videoSrc = 'https://videodelivery.net/e6b5da35c5d46e342d8ec348dcda36e3/manifest/video.m3u8';
 
-    if (Hls.isSupported()) {
-        var hls = new Hls();
-        hls.attachMedia(video);
-        hls.on(Hls.Events.MEDIA_ATTACHED, function () {
-            hls.loadSource(videoSrc);
-        });
-    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-        video.src = videoSrc;
-    }
-}
-
-function Indice() {
+function Presentazione() {
     document.querySelector("body").classList.remove("no-scroll");
     //estetica
     const state = proxy({ headerColor: 'light', showLogo: false })
@@ -38,12 +23,29 @@ function Indice() {
                 transition: { duration: 0.6, ...transition },
             }}
             exit={{ opacity: 0 }}>
-            <video autoPlay muted loop ref={(input) => { loadVideo(input) }} className="cover-video" poster={require('../images/pre-cover.png').default}></video>
             <div className="container--page">
-                <div className="spacer-90"></div>
-                <div className="row"><h2>LA MOSTRA</h2></div>
+
+                <div className="row">
+                    <h2>PRESENTAZIONE</h2>
+                </div>
                 <div className="pure-g">
-                    <div className="pure-u-1 pure-u-md-2-3 l-box">
+                    <div className="pure-u-1 ">
+                        <div style={{ position: "relative", paddingTop: `56.25%` }}>
+                            <iframe
+                                src="https://iframe.videodelivery.net/2f931ebc4449b863934754c128f5e54f?autoplay=true&poster=https%3A%2F%2Fvideodelivery.net%2F2f931ebc4449b863934754c128f5e54f%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600"
+                                style={{ border: "none", position: "absolute", top: 0, left: 0, height: `100%`, width: `100%` }}
+                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                allowFullScreen={true}
+                                title="video presentazione"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div className="spacer-90"></div>
+                <div className="pure-g">
+                    <div className="pure-u-1 pure-u-md-1-3 l-box">
+                        <img className="responsive" src={require('../images/pre-cover.png').default} alt="mazal tov!" />
+                    </div>
+                    <div className="pure-u-1 pure-u-md-1-2 l-box">
                         <p>Una mostra per raccontare uno dei riti più antichi e affascinanti dell’ebraismo: il matrimonio.</p>
                         <p>Ieri, oggi, domani: il matrimonio ebraico si nutre di precetti e riti del passato, è l’emblema della continuità, affonda le sue radici nella Bibbia; eppure convive con un presente vibrante, dialoga con la cultura nella quale è immerso, segna la nascita di una nuova famiglia. “Mazal Tov!” racconta proprio questo equilibrio tra antico e moderno, accostando preziosi documenti ad opere di arte contemporanea. Al centro ci sono decine di storie; frammenti di discorsi amorosi lunghi secoli e fissati per sempre attraverso oggetti; atti; scatti.</p>
                         {/* <p>Le prime sale illustrano le due fasi e le pratiche che compongono il cerimoniale nuziale: i Qiddushin (o Erusin) e i Nissuin. Anticamente celebrati separatamente, essi si svolgono attualmente insieme, uno immediatamente conseguente all’altro. A renderli caratteristici, l’ambientazione sotto la chuppah, il baldacchino di tessuto che unisce simbolicamente sotto lo stesso tetto i due sposi; la firma della Ketubbah, l’atto nuziale nato anche con lo scopo di tutelare i diritti della donna e che con il tempo è stato arricchito da finissime decorazioni, e la rottura del bicchiere, immortalata da tantissimi film e immagini. Per raccontare in maniera chiara ed esaustiva tutti i passaggi si è scelto di accostare opere e strumenti comunicativi diversi: in mostra verranno esposte le preziose Ketubbot del '600 e del '700 custodite dalle Gallerie Estensi di Modena (Biblioteca Estense Universitaria); il teatrino dell’artista genovese Emanuele Luzzati proveniente dal Museo Ebraico di Bologna e il filmato di un matrimonio contemporaneo. L’esposizione prosegue con una riflessione sul riconoscimento del matrimonio ebraico da parte dello Stato Italiano e il racconto - attraverso cimeli di famiglia - delle tradizioni che con il tempo hanno caratterizzato le nozze: la dote, i regali per lo sposo e per la sposa (che possono variare da una edizione completa del Talmud ad un orologio griffato) e la produzione di componimenti d’occasione.</p>
@@ -55,7 +57,7 @@ function Indice() {
 
                     </div>
                     <div className="pure-u-1 pure-u-md-1-3 l-box">
-                        <img className="responsive" src={require('../images/pre-cover.png').default} alt="talmud kiddushin" />
+                        <img className="responsive" src={require('../images/pre-cover.png').default} alt="mazal tov!" />
                     </div>
 
                 </div>
@@ -93,7 +95,7 @@ function Indice() {
                 <div className="spacer-30"></div>
 
                 <div className="pure-g">
-                    <div className="pure-u-1 pure-u-md-1-2 w-box p-15">
+                    <div className="pure-u-1 pure-u-md-1-2 w-box p-30">
                         <div className="quote">
                             <p>La mostra “Mazal Tov! Il matrimonio ebraico”, che illustra uno dei momenti più significativi della vita ebraica, è il modo più appropriato per riabbracciare il pubblico del Museo.</p>
 
@@ -116,7 +118,7 @@ function Indice() {
 
 
                     </div>
-                    <div className="pure-u-1 pure-u-md-1-2 w-box p-15">
+                    <div className="pure-u-1 pure-u-md-1-2 w-box p-30">
                         <div className="quote">
                             <p>L’ebraismo considera il matrimonio la condizione ideale dell’essere umano, un’unione fondata sull’amore e sul rispetto, la cui celebrazione riflette la gioia della coppia, della famiglia e della comunità.</p>
                             <p>Nella Torah e in particolare nella Genesi troviamo menzione del vincolo che lega l’uomo e la donna e l’incoraggiamento a formare una nuova famiglia. Per l’ebraismo questa unione è suggellata dal matrimonio e costituisce uno dei momenti fondamentali della vita di un individuo. Nel Deuteronomio, il quinto libro della Torah, si rintraccia il complesso di norme che regola la costituzione del vincolo e l’eventuale suo scioglimento contemplato dall’ebraismo attraverso il divorzio.</p>
@@ -144,4 +146,4 @@ function Indice() {
     );
 }
 
-export default Indice;
+export default Presentazione;

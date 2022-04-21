@@ -12,6 +12,8 @@ import Foto from "./pages/polaroid";
 import ZoomPage from "./pages/zoom";
 import Indice from "./pages/indice";
 import Sponsor from "./pages/sponsor";
+import Presentazione from "./pages/presentazione";
+import Visita from "./pages/visita";
 
 //components
 import Header from "./components/header";
@@ -26,26 +28,18 @@ function PagineSito() {
     <AnimatePresence initial={false} exitBeforeEnter>
       <Routes location={location} key={location.pathname}>
         <Route exact path='/' element={<Home />} />
-        <Route exact path='/mappa' element={<Mappa />} />
+        <Route exact path='/presentazione' element={<Presentazione />} />
+        <Route exact path='/visita' element={<Visita />} />
+        <Route exact path='/mostra' element={<Mappa />} />
         <Route exact path='/lopez' element={<Lopez />} />
-        <Route exact path='/culture' element={<Culture />} />
-        <Route exact path='/foto' element={<Foto />} />
-
-
         <Route exact path='/page/:id/' element={<Model />} />
-
-
         <Route exact path='/zoom/:id/' element={<ZoomPage />} />
+        <Route exact path='/indice/' element={<Indice />} />
 
+        <Route exact path='/foto' element={<Foto />} />
+        <Route exact path='/culture' element={<Culture />} />
 
-        <Route
-          exact
-          path='/indice/' element={<Indice />}
-        />
-        <Route
-          exact
-          path='/colophon/' element={<Sponsor />}
-        />
+        <Route exact path='/colophon/' element={<Sponsor />} />
       </Routes>
     </AnimatePresence >
 

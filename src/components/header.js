@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 import { motion } from "framer-motion";
 import { proxy, useSnapshot } from 'valtio'
 
@@ -8,9 +8,9 @@ const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] };
 const state = proxy({ headerColor: 'light' })
 
 function Header() {
-	const headerColor = useSelector(function (state) {
-		return state.headerColor.value.payload
-	})
+	// const headerColor = useSelector(function (state) {
+	// 	return state.headerColor.value.payload
+	// })
 	const snap = useSnapshot(state)
 	return (
 		<header className={snap.headerColor} style={{ zIndex: 9999 }}>
@@ -30,9 +30,19 @@ function Header() {
 						</Link>
 					</li>
 					<li>
-						<Link to='/mappa' onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); state.headerColor = 'light' }}>
+						<Link to='/presentazione' onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); state.headerColor = 'light' }}>
+							PRESENTAZIONE
+						</Link>
+					</li>
+					<li>
+						<Link to='/visita' onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); state.headerColor = 'light' }}>
 							VISITA VIRTUALE
 						</Link>
+					</li>
+					<li >
+						<a href="/mostra" onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); }}>
+							LA MOSTRA
+						</a>
 					</li>
 					<li>
 						<Link to='/lopez' onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); state.headerColor = 'light' }}>
@@ -40,24 +50,19 @@ function Header() {
 						</Link>
 					</li>
 					<li >
-						<a href="/" onClick={() => {
-							document.querySelector(".menu").classList.remove("showMenu");
-						}}>
-							LA MOSTRA
+						<a href="/foto" onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); }}>
+							FOTO MATRIMONI
+						</a>
+					</li>
+					<li >
+						<a href="/culture" onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); }}>
+							IL MATRIMONIO NELLE DIVERSE CULTURE
 						</a>
 					</li>
 					<li>
-						<Link to='/colophon/' onClick={() => {
-							document.querySelector(".menu").classList.remove("showMenu");
-							state.headerColor = 'dark'
-						}}>
+						<Link to='/colophon' onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); state.headerColor = 'dark' }}>
 							COLOPHON
 						</Link>
-					</li>
-					<li>
-						<a href="https://meis.museum/la-fondazione/sostieni/" target="_blank" rel="noreferrer">
-							SOSTIENICI
-						</a>
 					</li>
 					<li>
 						<span onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); }}>

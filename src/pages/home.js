@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { proxy } from 'valtio'
 import Hls from 'hls.js';
@@ -62,22 +61,22 @@ function Indice() {
                     className="card-container"
                     initial="offscreen"
                     whileInView="onscreen"
-                    viewport={isMobile ? { once: true, amount: 0.1 } : { once: true, amount: 0.4 }}
+                    viewport={isMobile ? { once: true, amount: 0.1 } : { once: true, amount: 0.5 }}
                 >
                     <div className="pure-g" style={{ width: `90vw` }}>
                         <motion.div className="card pure-u-1 pure-u-md-1-3" variants={cardVariants} style={isMobile ? { y: `-20vh`, x: `5vw`, rotate: 0 } : { y: `-17vh`, x: `30vw`, rotate: -20 }}>
-                            <Polaroid to='/mappa' callback={() => { state.headerColor = 'light' }} title="Presentazione" />
+                            <Polaroid to='/presentazione' callback={() => { state.headerColor = 'light' }} title="Presentazione" />
                         </motion.div>
                         <motion.div className="card pure-u-1 pure-u-md-1-3" variants={cardVariants} style={isMobile ? { y: `-20vh`, x: `5vw`, rotate: 0 } : { y: `-17vh`, x: `20vw`, rotate: 10 }}>
-                            <Polaroid to='/mappa' callback={() => { state.headerColor = 'light' }} title="Visita virtuale" />
+                            <Polaroid to='/visita' callback={() => { state.headerColor = 'light' }} title="Visita virtuale" />
                         </motion.div>
                         <motion.div className="card pure-u-1 pure-u-md-1-3" variants={cardVariants} style={isMobile ? { y: `-20vh`, x: `5vw`, rotate: 0 } : { y: `-17vh`, x: `-50vw`, rotate: 3 }}>
-                            <Polaroid to='/mappa' callback={() => { state.headerColor = 'light' }} title="La mostra" />
+                            <Polaroid to='/mostra' callback={() => { state.headerColor = 'light' }} title="La mostra" />
                         </motion.div>
                         <motion.div className="card pure-u-1 pure-u-md-1-3" variants={cardVariants} style={isMobile ? { y: `-65vh`, x: 0, rotate: 0 } : { y: scostamento, x: `61vw`, rotate: -11 }}>
                             <Polaroid to='/lopez' callback={() => { state.headerColor = 'light' }} title="Album di nozze Lopez-Sadun" />
                         </motion.div>
-                        <motion.div className="card pure-u-1 pure-u-md-1-3" variants={cardVariants} style={isMobile ? { y: `-110vh`, x: `-5vw`, rotate: 0 } : { y: scostamento, x: `-20vw`, rotate: 15 }}>
+                        <motion.div className="card pure-u-1 pure-u-md-1-3" variants={cardVariants} style={isMobile ? { y: `-110vh`, x: `-5vw`, rotate: 0 } : { y: scostamento, x: `-35vw`, rotate: -15 }}>
                             <Polaroid to='/foto' callback={() => { state.headerColor = 'light' }} title="Foto matrimoni" />
                         </motion.div>
                         <motion.div className="card pure-u-1 pure-u-md-1-3" variants={cardVariants} style={isMobile ? { y: `-155vh`, x: `5vw`, rotate: 0 } : { y: scostamento, x: `-11vw`, rotate: 12 }}>
