@@ -67,6 +67,9 @@ function Presentazione() {
                         <Link to='/mappa' onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); state.headerColor = 'light' }} className="link button width-100">
                             VISITA VIRTUALE
                         </Link>
+                        <Link to='/mostra' onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); state.headerColor = 'light' }} className="link button width-100">
+                            LA MOSTRA
+                        </Link>
                         <Link to='/lopez' onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); state.headerColor = 'light' }} className="link button width-100">
                             ALBUM DI NOZZE LOPEZ-SADUN
                         </Link>
@@ -76,15 +79,6 @@ function Presentazione() {
                         <Link to='/culture' onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); state.headerColor = 'light' }} className="link button width-100">
                             IL MATRIMONIO NELLE DIVERSE CULTURE
                         </Link>
-                        <Link to='/colophon/' onClick={() => {
-                            document.querySelector(".menu").classList.remove("showMenu");
-                            state.headerColor = 'dark'
-                        }} className="link button">
-                            COLOPHON
-                        </Link>
-                        <a href="https://meis.museum/la-fondazione/sostieni/" target="_blank" rel="noreferrer" className="link button width-100">
-                            SOSTIENICI
-                        </a>
                     </div>
                 </div>
 

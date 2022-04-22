@@ -10,10 +10,15 @@ import "react-awesome-lightbox/build/style.css";
 const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] };
 function Quiddushin() {
     const titolo = "Kiddushin";
+    const prima = "/mostra";
+    const dopo = "/ketubbah";
+    const rotazione = [DEG45, -1 * DEG45]
 
     document.querySelector("body").classList.remove("no-scroll");
     window.scrollTo(0, 0);
     const [visibile, setVisibile] = React.useState(false);
+    const [visibile2, setVisibile2] = React.useState(false);
+    const [visibile3, setVisibile3] = React.useState(false);
 
 
 
@@ -26,7 +31,7 @@ function Quiddushin() {
                             exit={{ opacity: 0, height: `100vh` }}
                             transition={transition} className="row center top-row">
                             <header style={{ height: `50vh`, position: "relative" }}>
-                                <Mappa3D target={titolo} rotazione={[DEG45, -1 * DEG45]} />
+                                <Mappa3D target={titolo} rotazione={rotazione} />
                             </header>
 
                         </motion.div>
@@ -37,9 +42,9 @@ function Quiddushin() {
 
                                     <h2 className="with-buttons p-15">
                                         <div className="navigazione--sale">
-                                            <Link className={"bottone--sx"} to="/matrimonio-civile">←</Link>
+                                            <Link className={"bottone--sx"} to={prima}>←</Link>
                                             <Link className={"bottone--cx"} to="/mostra">↑</Link>
-                                            <Link className={"bottone--dx"} to="/mazal-tov">→</Link>
+                                            <Link className={"bottone--dx"} to={dopo}>→</Link>
                                         </div>
                                         {titolo}
                                     </h2>
@@ -77,7 +82,7 @@ function Quiddushin() {
                                             <div className="pure-u-1 pure-u-md-1-4 p-15">
                                                 {visibile ? <Lightbox
                                                     image="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-3-1024x683.jpeg"
-                                                    title="Image Title"
+                                                    title="TALMUD BABILONESE. TRATTATO KIDDUSHIN."
                                                     onClose={() => { setVisibile(false) }}
                                                 /> : null}
                                                 <img
@@ -89,10 +94,16 @@ function Quiddushin() {
 
                                             </div>
                                             <div className="pure-u-1 pure-u-md-1-4 p-15">
+                                                {visibile2 ? <Lightbox
+                                                    image="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-2-1024x683.jpeg"
+                                                    title="TALMUD BABILONESE. TRATTATO KIDDUSHIN."
+                                                    onClose={() => { setVisibile2(false) }}
+                                                /> : null}
                                                 <img
                                                     src="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-2-1024x683.jpeg"
                                                     alt="foto talmud 2"
                                                     className="responsive"
+                                                    onClick={() => { setVisibile2(true) }}
                                                 />
                                             </div>
                                         </div>
@@ -100,11 +111,18 @@ function Quiddushin() {
 
                                         <div className="pure-g">
                                             <div className="pure-u-1 pure-u-md-1-2 p-15">
+                                                {visibile3 ? <Lightbox
+                                                    image="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/FEDE-NUZIALE-ALLEGRA-DI-NOLA-Italia-1865-2-1024x683.jpeg"
+                                                    title="FEDE NUZIALE, Italia, 1865, oro con ametista"
+                                                    onClose={() => { setVisibile3(false) }}
+                                                /> : null}
                                                 <img
                                                     src="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/FEDE-NUZIALE-ALLEGRA-DI-NOLA-Italia-1865-2-1024x683.jpeg"
                                                     alt="foto anello"
                                                     className="responsive"
+                                                    onClick={() => { setVisibile3(true) }}
                                                 />
+
                                             </div>
                                             <div className="pure-u-1 pure-u-md-1-2 p-15">
                                                 <h3>FEDE NUZIALE, Italia, 1865, oro con ametista</h3>
@@ -123,7 +141,7 @@ function Quiddushin() {
                                     </div>
 
                                     <div className="spacer-90"></div>
-                                </div>
+                                </div>{/* fine testo */}
                             </div>
                         </div>
                     </AnimateSharedLayout>

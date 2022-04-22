@@ -22,6 +22,16 @@ import Header from "./components/header";
 import "./App.scss";
 import Chuppah from "./contents/sezioni/chuppah";
 import Quiddushin from "./contents/sezioni/quiddushin";
+import Dote from "./contents/sezioni/dote";
+import Epitalamio from "./contents/sezioni/epitalamio";
+import UsiECostumi from "./contents/sezioni/usi-e-costumi";
+import Regolamenti from "./contents/sezioni/regolamenti";
+import Miqveh from "./contents/sezioni/miqveh";
+import Matrimonio from "./contents/sezioni/matrimonio-civile";
+import MazalTov from "./contents/sezioni/mazal-tov";
+import Ketubbah from "./contents/sezioni/ketubbah";
+import Nissuin from "./contents/sezioni/nissuin";
+import Regali from "./contents/sezioni/i-regali-degli-sposi";
 
 function PagineSito() {
   let location = useLocation();
@@ -45,6 +55,16 @@ function PagineSito() {
 
         <Route exact path='/chuppah' element={<Chuppah />} />
         <Route exact path='/quiddushin' element={<Quiddushin />} />
+        <Route exact path='/dote' element={<Dote />} />
+        <Route exact path='/nissuin' element={<Nissuin />} />
+        <Route exact path='/epitalamio' element={<Epitalamio />} />
+        <Route exact path='/usi-e-costumi' element={<UsiECostumi />} />
+        <Route exact path='/regolamenti' element={<Regolamenti />} />
+        <Route exact path='/miqveh' element={<Miqveh />} />
+        <Route exact path='/mazal-tov' element={<MazalTov />} />
+        <Route exact path='/matrimonio-civile' element={<Matrimonio />} />
+        <Route exact path='/ketubbah' element={<Ketubbah />} />
+        <Route exact path='/i-regali-degli-sposi' element={<Regali />} />
       </Routes>
     </AnimatePresence >
 

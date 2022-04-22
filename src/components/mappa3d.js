@@ -263,7 +263,7 @@ const LuciDisco = ({ pulsing, ...props }) => {
 
 const Mappa3D = (props) => {
     const canvasRef = useRef()
-    if (props.target === 'chuppah') {
+    if (props.target === 'Chuppah') {
         meshVisibile["tetto"] = true
         meshVisibile["tetto001"] = true
         meshVisibile["tetto002"] = true
