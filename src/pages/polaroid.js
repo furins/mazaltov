@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import {
   useParams
 } from "react-router-dom";
-import ProgressiveImage from "react-progressive-graceful-image";
+// import ProgressiveImage from "react-progressive-graceful-image";
 import { useDispatch } from 'react-redux'
 
 //Ease
-const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] };
+// const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] };
 document.querySelector("body").classList.remove("no-scroll");
 
 const Foto = () => {
@@ -22,7 +22,7 @@ const Foto = () => {
   }, [id, dispatch])
 
   // animazione
-  const [canScroll, setCanScroll] = useState(false);
+  // const [canScroll, setCanScroll] = useState(false);
 
   document.querySelector("body").classList.remove("no-scroll");
 
@@ -32,7 +32,7 @@ const Foto = () => {
   return (
     <>
       <motion.div
-        onAnimationComplete={() => setCanScroll(true)}
+        //onAnimationComplete={() => setCanScroll(true)}
         className='single'
         initial='initial'
         animate='animate'
