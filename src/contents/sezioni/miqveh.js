@@ -17,6 +17,10 @@ function Miqveh() {
     document.querySelector("body").classList.remove("no-scroll");
     window.scrollTo(0, 0);
     const [visibile, setVisibile] = React.useState(false);
+    const [visibile2, setVisibile2] = React.useState(false);
+    const [visibile3, setVisibile3] = React.useState(false);
+    const [visibile4, setVisibile4] = React.useState(false);
+    const [visibile5, setVisibile5] = React.useState(false);
 
     return (
         <>
@@ -64,19 +68,85 @@ function Miqveh() {
 
                                         <div className="pure-g">
                                             <div className="pure-u-1 pure-u-md-11-24">
-                                                <h3 className="didascalia--titolo">mikveh.</h3>
+                                                <h3 className="didascalia--titolo">Salt Crystal Bridal Gown III (sinistra) e VI (destra), 2014</h3>
+                                                <div className="didascalia--descrizione">Sigalit Landau in collaborazione con Yotam From, stampa a colori</div>
+                                            </div>
+                                            <div className="pure-u-1 pure-u-md-1-4">
+                                                {visibile5 ? <Lightbox
+                                                    image={require("../../images/full/miqveh/foto_13.jpg").default}
+                                                    title="Salt Crystal Bridal Gown."
+                                                    onClose={() => { setVisibile5(false) }}
+                                                /> : null}
+                                                <img
+                                                    src={require("../../images/full/miqveh/foto_13.jpg").default}
+                                                    alt="Salt Crystal Bridal Gown"
+                                                    className="responsive"
+                                                    onClick={() => { setVisibile5(true) }}
+                                                />
                                             </div>
                                             <div className="pure-u-1 pure-u-md-1-4">
                                                 {visibile ? <Lightbox
                                                     image={require("../../images/full/miqveh/foto_01.jpg").default}
-                                                    title="TALMUD BABILONESE. TRATTATO KIDDUSHIN."
+                                                    title="Salt Crystal Bridal Gown."
                                                     onClose={() => { setVisibile(false) }}
                                                 /> : null}
                                                 <img
                                                     src={require("../../images/full/miqveh/foto_01.jpg").default}
-                                                    alt="foto talmud 2"
+                                                    alt="Salt Crystal Bridal Gown"
                                                     className="responsive"
                                                     onClick={() => { setVisibile(true) }}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="spacer-90"></div>
+
+                                        <h3 className="didascalia--titolo">Flora Deborah, Una per Tutte, Tutte per Una, 2021</h3>
+                                        <p className="didascalia--testo">ceramica smaltata, cm 97x86</p>
+                                        <div className="pure-g">
+
+                                            <div className="pure-u-1 pure-u-md-1-3">
+                                                {visibile2 ? <Lightbox
+                                                    image={require("../../images/full/miqveh/foto_02.jpg").default}
+                                                    title="Una per Tutte, Tutte per Una"
+                                                    onClose={() => { setVisibile2(false) }}
+                                                /> : null}
+                                                <img
+                                                    src={require("../../images/full/miqveh/foto_02.jpg").default}
+                                                    alt="Una per Tutte, Tutte per Una"
+                                                    className="responsive"
+                                                    onClick={() => { setVisibile2(true) }}
+                                                />
+                                            </div>
+
+
+                                            <div className="pure-u-1 pure-u-md-1-3">
+
+                                                {visibile3 ? <Lightbox
+                                                    image={require("../../images/full/miqveh/foto_03.jpg").default}
+                                                    title="Una per Tutte, Tutte per Una"
+                                                    onClose={() => { setVisibile3(false) }}
+                                                /> : null}
+                                                <img
+                                                    src={require("../../images/full/miqveh/foto_03.jpg").default}
+                                                    alt="Una per Tutte, Tutte per Una"
+                                                    className="responsive"
+                                                    onClick={() => { setVisibile3(true) }}
+                                                />
+                                            </div>
+
+
+                                            <div className="pure-u-1 pure-u-md-1-3">
+
+                                                {visibile4 ? <Lightbox
+                                                    image={require("../../images/full/miqveh/foto_04.jpg").default}
+                                                    title="Una per Tutte, Tutte per Una"
+                                                    onClose={() => { setVisibile4(false) }}
+                                                /> : null}
+                                                <img
+                                                    src={require("../../images/full/miqveh/foto_04.jpg").default}
+                                                    alt="Una per Tutte, Tutte per Una"
+                                                    className="responsive"
+                                                    onClick={() => { setVisibile4(true) }}
                                                 />
                                             </div>
                                         </div>
