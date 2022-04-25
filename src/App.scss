@@ -921,15 +921,10 @@ img.responsive {
   padding: 10px;
 }
 
-.didascalia {
-}
 .didascalia--titolo {
   font-size: 130%;
 }
-.didascalia--prestatore {
-}
-.didascalia--descrizione {
-}
+
 .stellato {
   background-image: url(./images/background_stelle.png);
   background-repeat: repeat;
@@ -1077,4 +1072,22 @@ img.responsive {
 .logo--footer-w {
   width: 300px;
   max-width: 100%;
+}
+
+.video-responsive {
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  position: relative;
+}
+
+.video-responsive iframe,
+.video-responsive object,
+.video-responsive embed {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
