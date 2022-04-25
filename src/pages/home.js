@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { proxy } from 'valtio'
 import Hls from 'hls.js';
@@ -7,20 +7,6 @@ import { Link } from "react-router-dom";
 
 
 const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] };
-
-function loadVideo(video) {
-    var videoSrc = 'https://videodelivery.net/e6b5da35c5d46e342d8ec348dcda36e3/manifest/video.m3u8';
-
-    if (Hls.isSupported()) {
-        var hls = new Hls();
-        hls.attachMedia(video);
-        hls.on(Hls.Events.MEDIA_ATTACHED, function () {
-            hls.loadSource(videoSrc);
-        });
-    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-        video.src = videoSrc;
-    }
-}
 
 const cardVariants: Variants = {
     offscreen: {},
@@ -43,6 +29,26 @@ function Indice() {
     //estetica
     const state = proxy({ headerColor: 'light', showLogo: false })
 
+    let video = useRef()
+    useEffect(() => {
+        let player = video.current
+
+        var videoSrc = 'https://videodelivery.net/e6b5da35c5d46e342d8ec348dcda36e3/manifest/video.m3u8';
+
+        if (Hls.isSupported()) {
+            var hls = new Hls();
+            hls.attachMedia(player);
+            hls.on(Hls.Events.MEDIA_ATTACHED, function () {
+                hls.loadSource(videoSrc);
+            });
+        } else if (player.canPlayType('application/vnd.apple.mpegurl')) {
+            player.src = videoSrc;
+        }
+        return (() => {
+            player.pause()
+        })
+    })
+
     return (<>
         <motion.div
             className="indice fullheight"
@@ -52,7 +58,7 @@ function Indice() {
                 transition: { duration: 0.6, ...transition },
             }}
             exit={{ opacity: 0 }}>
-            <video autoPlay muted loop ref={(input) => { loadVideo(input) }} className="cover-video" poster={require('../images/pre-cover.png').default}></video>
+            <video autoPlay playsInline muted loop ref={video} className="cover-video" poster={require('../images/pre-cover.png').default}></video>
 
             <div className="container--page stellato">
 
