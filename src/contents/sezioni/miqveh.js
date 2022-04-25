@@ -48,11 +48,11 @@ function Miqveh() {
                                     <div className="">{/* inserire qui il testo */}
                                         <div className="pure-g">
                                             <div className="pure-u-1">
-                                                Il mikveh, termine che in ebraico ha il significato di raccolta, è una vasca
+                                                Il miqveh, termine che in ebraico ha il significato di raccolta, è una vasca
                                                 o un bagno di acqua limpida che rende ritualmente pulita o pura la persona
                                                 che vi si immerge. Nell’ebraismo l’enfasi è posta sul fine spirituale e non
                                                 fisico della pulizia. La sposa viene accompagnata il giorno che precede le
-                                                nozze da parenti e amiche sposate al mikveh. Qui si immerge nell’acqua e in
+                                                nozze da parenti e amiche sposate al miqveh. Qui si immerge nell’acqua e in
                                                 questa occasione deve avere cura di non avere addosso nulla, ad esempio
                                                 smalto sulle unghie, anelli o del trucco, che impedisca il contatto diretto
                                                 con l’acqua. La sua bocca non dovrà essere serrata, ma chiusa. Dal
