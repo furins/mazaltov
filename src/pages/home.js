@@ -40,8 +40,9 @@ function Indice() {
             hls.attachMedia(player);
             hls.on(Hls.Events.MEDIA_ATTACHED, function () {
                 hls.loadSource(videoSrc);
+                player.play();
+
             });
-            player.play();
         } else if (player.canPlayType('application/vnd.apple.mpegurl')) {
             player.src = videoSrc;
             player.play();

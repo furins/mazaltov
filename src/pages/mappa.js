@@ -59,7 +59,7 @@ function Mappa() {
                                             <Polaroid src={require("../images/thumbs/miqveh/foto_05.jpg").default} callback={() => { state.headerColor = 'light' }} to="/miqveh" title="Miqveh" />
                                         </div>
                                         <div className="card pure-u-1 pure-u-md-1-3">
-                                            <Polaroid src={require("../images/thumbs/i_regali_degli_sposi/foto_09.jpg").default} callback={() => { state.headerColor = 'light' }} to="i-regali-degli-sposi" title="I regali degli sposi" />
+                                            <Polaroid src={require("../images/thumbs/i_regali_degli_sposi/foto_09.jpg").default} callback={() => { state.headerColor = 'light' }} to="/i-regali-degli-sposi" title="I regali degli sposi" />
                                         </div>
                                         <div className="card pure-u-1 pure-u-md-1-3">
                                             <Polaroid src={require("../images/thumbs/epitalamio/foto_04.jpg").default} callback={() => { state.headerColor = 'light' }} to="/epitalamio" title="L'epitalamio" />
