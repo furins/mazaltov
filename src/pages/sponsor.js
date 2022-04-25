@@ -18,7 +18,7 @@ function Sponsor() {
             }}
             exit={{ opacity: 0 }}>
 
-            <h2>ALBUM IN ONORE DELLE NOZZE FRA CORRADO LOPEZ E ADA SADUN</h2>
+            <h2>MAZAL TOV!</h2>
 
             <div className="loghi">
                 <div className="colonna">
@@ -90,7 +90,7 @@ function Sponsor() {
                 </div>
             </div>
             <div className="patrocini-wrapper">
-                <h3>La mostra MAZAL TOV! è realizzata da</h3>
+                <h3>La mostra MAZAL TOV! è stata realizzata da</h3>
                 <img className="patrocini" src={require("../images/mostra-1.png").default} alt="MEIS, Museo Nazionale dell'Ebraismo Italiano e della Shoah" />
                 <h4>Con il sostegno di</h4>
                 <img className="patrocini" src={require("../images/mostra-2.png").default} alt="Sostenitori" />

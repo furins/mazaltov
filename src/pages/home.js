@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { proxy } from 'valtio'
 import Hls from 'hls.js';
 import { Polaroid } from "../components/polaroid";
+import { Link } from "react-router-dom";
 
 
 const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] };
@@ -42,7 +43,7 @@ function Indice() {
     //estetica
     const state = proxy({ headerColor: 'light', showLogo: false })
 
-    return (
+    return (<>
         <motion.div
             className="indice fullheight"
             initial={{ opacity: 0 }}
@@ -92,13 +93,46 @@ function Indice() {
                     </div>
                 </motion.div>
 
+
+
+
+            </div>
+            <div className="fascia fullwidth dark">
                 <div className="spacer-30"></div>
-                <a href="https://meis.museum/la-fondazione/sostieni/" target="_blank" rel="noreferrer" className="link button width-100">
-                    SOSTIENICI
-                </a>
+                <div className="pure-g">
+
+                    <div className="pure-u-1-3 pure-u-md-1-3">
+                        <h4>Un progetto digitale del</h4>
+                        <img className="logo--footer-w" src={require("../images/meis.png").default} alt="MEIS, Museo Nazionale dell'Ebraismo Italiano e della Shoah" />
+                    </div>
+                    <div className="pure-u-1-3 pure-u-md-1-3">
+                        <h4>Realizzato con il contributo della</h4>
+                        <div className="imgText">
+                            <img className="logo--footer-h" src={require("../images/de_levy.png").default} alt="Fondazione Guglielmo de Levy" />
+                            <span>Fondazione Guglielmo De Levy</span>
+                        </div>
+                    </div>
+                    <div className="pure-u-1-3 pure-u-md-1-3">
+                        <div className="spacer-60"></div>
+                        <a href="https://meis.museum/la-fondazione/sostieni/" target="_blank" rel="noreferrer" className="link button width-100">
+                            SOSTIENICI
+                        </a>
+                        <br />
+                        <br />
+                        <Link to="/colophon" className="link button width-100">
+                            COLOPHON
+                        </Link>
+
+                    </div>
+                </div>
+
+
                 <div className="spacer-30"></div>
+
             </div>
         </motion.div >
+
+    </>
     );
 }
 
