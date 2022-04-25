@@ -40,9 +40,9 @@ function Header() {
 						</Link>
 					</li>
 					<li >
-						<a href="/mostra" onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); }}>
+						<Link to="/mostra" onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); }}>
 							LA MOSTRA
-						</a>
+						</Link>
 					</li>
 					<li>
 						<Link to='/lopez' onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); state.headerColor = 'light' }}>
@@ -50,14 +50,14 @@ function Header() {
 						</Link>
 					</li>
 					<li >
-						<a href="/foto" onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); }}>
+						<Link to="/foto" onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); }}>
 							FOTO MATRIMONI
-						</a>
+						</Link>
 					</li>
 					<li >
-						<a href="/culture" onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); }}>
+						<Link to="/culture" onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); }}>
 							IL MATRIMONIO NELLE DIVERSE CULTURE
-						</a>
+						</Link>
 					</li>
 					<li>
 						<Link to='/colophon' onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); state.headerColor = 'dark' }}>

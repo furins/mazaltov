@@ -2,7 +2,7 @@ import React from "react";
 import { motion, AnimateSharedLayout } from "framer-motion";
 import Mappa3D, { DEG45 } from "../../components/mappa3d";
 import { Link } from "react-router-dom";
-import Lightbox from "react-awesome-lightbox";
+// import Lightbox from "react-awesome-lightbox";
 
 // You need to import the CSS only once
 import "react-awesome-lightbox/build/style.css";
@@ -16,7 +16,7 @@ function Regolamenti() {
 
     document.querySelector("body").classList.remove("no-scroll");
     window.scrollTo(0, 0);
-    const [visibile, setVisibile] = React.useState(false);
+    // const [visibile, setVisibile] = React.useState(false);
 
 
 
@@ -60,7 +60,7 @@ function Regolamenti() {
                                                 spese per le nozze e persino per le decorazioni delle ketubbot.
                                             </div>
                                         </div>
-                                        <div className="spacer-30"></div>
+                                        {/* <div className="spacer-30"></div>
 
                                         <div className="pure-g">
                                             <div className="pure-u-1 pure-u-md-11-24">
@@ -74,18 +74,18 @@ function Regolamenti() {
                                             </div>
                                             <div className="pure-u-1 pure-u-md-1-2">
                                                 {visibile ? <Lightbox
-                                                    image="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-3-1024x683.jpeg"
-                                                    title="TALMUD BABILONESE. TRATTATO KIDDUSHIN."
+                                                    image={require("../../images/thumbs/mazaltov/foto_01.jpg").default}
+                                                    title="Editto per le Feste e gli Sposalizj degli Ebrei."
                                                     onClose={() => { setVisibile(false) }}
                                                 /> : null}
                                                 <img
-                                                    src="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-3-1024x683.jpeg"
-                                                    alt="foto talmud 2"
+                                                    src={require("../../images/thumbs/mazaltov/foto_01.jpg").default}
+                                                    alt="Editto per le Feste e gli Sposalizj degli Ebrei."
                                                     className="responsive"
                                                     onClick={() => { setVisibile(true) }}
                                                 />
                                             </div>
-                                        </div>
+                                        </div> */}
 
                                         <div className="spacer-90"></div>
 

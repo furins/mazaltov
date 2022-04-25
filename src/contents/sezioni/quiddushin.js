@@ -8,7 +8,7 @@ import Lightbox from "react-awesome-lightbox";
 import "react-awesome-lightbox/build/style.css";
 
 const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] };
-function Quiddushin() {
+function Qiddushin() {
     const titolo = "Kiddushin";
     const prima = "/mostra";
     const dopo = "/ketubbah";
@@ -81,13 +81,13 @@ function Quiddushin() {
                                             </div>
                                             <div className="pure-u-1 pure-u-md-1-4 p-15">
                                                 {visibile ? <Lightbox
-                                                    image="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-3-1024x683.jpeg"
+                                                    image={require("../../images/full/qiddushin/foto_01.jpg").default}
                                                     title="TALMUD BABILONESE. TRATTATO KIDDUSHIN."
                                                     onClose={() => { setVisibile(false) }}
                                                 /> : null}
                                                 <img
-                                                    src="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-3-1024x683.jpeg"
-                                                    alt="foto talmud 2"
+                                                    src={require("../../images/thumbs/qiddushin/foto_01.jpg").default}
+                                                    alt="TALMUD BABILONESE. TRATTATO KIDDUSHIN."
                                                     className="responsive"
                                                     onClick={() => { setVisibile(true) }}
                                                 />
@@ -95,13 +95,13 @@ function Quiddushin() {
                                             </div>
                                             <div className="pure-u-1 pure-u-md-1-4 p-15">
                                                 {visibile2 ? <Lightbox
-                                                    image="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-2-1024x683.jpeg"
+                                                    image={require("../../images/full/qiddushin/foto_03.jpg").default}
                                                     title="TALMUD BABILONESE. TRATTATO KIDDUSHIN."
                                                     onClose={() => { setVisibile2(false) }}
                                                 /> : null}
                                                 <img
-                                                    src="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-2-1024x683.jpeg"
-                                                    alt="foto talmud 2"
+                                                    src={require("../../images/thumbs/qiddushin/foto_03.jpg").default}
+                                                    alt="TALMUD BABILONESE. TRATTATO KIDDUSHIN."
                                                     className="responsive"
                                                     onClick={() => { setVisibile2(true) }}
                                                 />
@@ -112,12 +112,12 @@ function Quiddushin() {
                                         <div className="pure-g">
                                             <div className="pure-u-1 pure-u-md-1-2 p-15">
                                                 {visibile3 ? <Lightbox
-                                                    image="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/FEDE-NUZIALE-ALLEGRA-DI-NOLA-Italia-1865-2-1024x683.jpeg"
+                                                    image={require("../../images/full/qiddushin/foto_06.jpg").default}
                                                     title="FEDE NUZIALE, Italia, 1865, oro con ametista"
                                                     onClose={() => { setVisibile3(false) }}
                                                 /> : null}
                                                 <img
-                                                    src="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/FEDE-NUZIALE-ALLEGRA-DI-NOLA-Italia-1865-2-1024x683.jpeg"
+                                                    src={require("../../images/thumbs/qiddushin/foto_06.jpg").default}
                                                     alt="foto anello"
                                                     className="responsive"
                                                     onClick={() => { setVisibile3(true) }}
@@ -152,4 +152,4 @@ function Quiddushin() {
     );
 }
 
-export default Quiddushin;
+export default Qiddushin;

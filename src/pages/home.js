@@ -64,22 +64,22 @@ function Indice() {
                 >
                     <div className="pure-g" style={{ width: `90vw` }}>
                         <motion.div className="card pure-u-1 pure-u-md-1-3" variants={cardVariants} style={isMobile ? { y: `-20vh`, x: `5vw`, rotate: 0 } : { y: `-17vh`, x: `30vw`, rotate: -20 }}>
-                            <Polaroid src="https://placekitten.com/600/600?image=13" to='/presentazione' callback={() => { state.headerColor = 'light' }} title="Presentazione" />
+                            <Polaroid src={require("../images/thumbs/inizio/foto_03.jpg").default} to='/presentazione' callback={() => { state.headerColor = 'light' }} title="Presentazione" />
                         </motion.div>
                         <motion.div className="card pure-u-1 pure-u-md-1-3" variants={cardVariants} style={isMobile ? { y: `-20vh`, x: `5vw`, rotate: 0 } : { y: `-17vh`, x: `20vw`, rotate: 10 }}>
-                            <Polaroid src="https://placekitten.com/600/600?image=14" to='/visita' callback={() => { state.headerColor = 'light' }} title="Visita virtuale" />
+                            <Polaroid src={require("../images/sezioni/virtuale.jpg").default} to='/visita' callback={() => { state.headerColor = 'light' }} title="Visita virtuale" />
                         </motion.div>
                         <motion.div className="card pure-u-1 pure-u-md-1-3" variants={cardVariants} style={isMobile ? { y: `-20vh`, x: `5vw`, rotate: 0 } : { y: `-17vh`, x: `-50vw`, rotate: 3 }}>
-                            <Polaroid src="https://placekitten.com/600/600?image=15" to='/mostra' callback={() => { state.headerColor = 'light' }} title="La mostra" />
+                            <Polaroid src={require("../images/sezioni/lamostra.jpg").default} to='/mostra' callback={() => { state.headerColor = 'light' }} title="La mostra" />
                         </motion.div>
                         <motion.div className="card pure-u-1 pure-u-md-1-3" variants={cardVariants} style={isMobile ? { y: `-65vh`, x: 0, rotate: 0 } : { y: scostamento, x: `61vw`, rotate: -11 }}>
-                            <Polaroid src="https://placekitten.com/600/600?image=16" to='/lopez' callback={() => { state.headerColor = 'light' }} title="Album di nozze Lopez-Sadun" />
+                            <Polaroid src={require("../images/sezioni/lopez.jpg").default} to='/lopez' callback={() => { state.headerColor = 'light' }} title="Album di nozze Lopez-Sadun" />
                         </motion.div>
                         <motion.div className="card pure-u-1 pure-u-md-1-3" variants={cardVariants} style={isMobile ? { y: `-110vh`, x: `-5vw`, rotate: 0 } : { y: scostamento, x: `-35vw`, rotate: -15 }}>
-                            <Polaroid src="https://placekitten.com/600/600?image=11" to='/foto' callback={() => { state.headerColor = 'light' }} title="Foto matrimoni" />
+                            <Polaroid src={require("../images/sezioni/matrimoni.jpg").default} to='/foto' callback={() => { state.headerColor = 'light' }} title="Foto matrimoni" />
                         </motion.div>
                         <motion.div className="card pure-u-1 pure-u-md-1-3" variants={cardVariants} style={isMobile ? { y: `-155vh`, x: `5vw`, rotate: 0 } : { y: scostamento, x: `-11vw`, rotate: 12 }}>
-                            <Polaroid src="https://placekitten.com/600/600?image=12" to='/culture' callback={() => { state.headerColor = 'light' }} title="Il matrimonio nelle diverse culture" />
+                            <Polaroid src={require("../images/sezioni/culture.jpg").default} to='/culture' callback={() => { state.headerColor = 'light' }} title="Il matrimonio nelle diverse culture" />
                         </motion.div>
                         {/* <motion.div className="card pure-u-1 pure-u-md-1-3" variants={cardVariants} style={isMobile ? { y: `-20vh`, x: `5vw`, rotate: 0 } : { y: scostamento * 2.2, x: `-40vw`, rotate: -20 }}>
                             <Polaroid to='/mappa' callback={() => { state.headerColor = 'light' }} title="Musiche" />

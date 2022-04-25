@@ -82,13 +82,13 @@ function MazalTov() {
                                             </div>
                                             <div className="pure-u-1 pure-u-md-1-2">
                                                 {visibile ? <Lightbox
-                                                    image="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-3-1024x683.jpeg"
-                                                    title="TALMUD BABILONESE. TRATTATO KIDDUSHIN."
+                                                    image={require("../../images/full/mazaltov/foto_01.jpg").default}
+                                                    title="Jenny Hassan, Il calice degli sposi"
                                                     onClose={() => { setVisibile(false) }}
                                                 /> : null}
                                                 <img
-                                                    src="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-3-1024x683.jpeg"
-                                                    alt="foto talmud 2"
+                                                    src={require("../../images/thumbs/mazaltov/foto_01.jpg").default}
+                                                    alt="Jenny Hassan, Il calice degli sposi"
                                                     className="responsive"
                                                     onClick={() => { setVisibile(true) }}
                                                 />

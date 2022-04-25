@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import {
   useParams
 } from "react-router-dom";
-import ProgressiveImage from "react-progressive-graceful-image";
+import YoutubeEmbed from "../components/YoutubeEmbed";
 import { useDispatch } from 'react-redux'
 
 //Ease
-const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] };
+// const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] };
 document.querySelector("body").classList.remove("no-scroll");
 
 const Culture = () => {
@@ -44,68 +44,33 @@ const Culture = () => {
         initial='initial'
         animate='animate'
         exit='exit'>
-        <div className='container fluid'>
-          <div className='row center top-row'>
-            <motion.div className='scroller-wrapper'
-              transition={transition}
-              initial={{
-                backgroundColor: "rgba(37, 48, 129, 0.7)",
-              }}
-              animate={{
-                backgroundColor: "#ffffff",
-              }}>
-              <div className='scroller'>
-                <motion.div
-                  className='scroller-img-wrapper'
-                  transition={transition}
-                  initial={{
-                    boxShadow: "0 10px 20px rgba(0, 0, 0, 0.5)",
-                    borderRadius: "10px",
-                  }}
-                  animate={{
-                    transition: { delay: 0.2, ...transition },
-                    boxShadow: "0 0px 0px rgba(0, 0, 0, 0)",
-                    borderRadius: "0px",
-                  }}>
-                  <motion.div
-                    className='frame-single'
-                    whileHover='hover'
-                  >
-                    <ProgressiveImage
-                      src={require("../images/pre-cover.png").default}
-                      placeholder={require("../images/pre-cover.png").default}>
-                      {(src) => (<motion.img
-                        src={src}
-                        alt="pre_cover"
-                        transition={transition}
-                        initial={{
-                          width: "350px",
-                        }}
-                        animate={{
-                          transition: { delay: 0.2, ...transition },
-                          width: "130vw",
-                        }}
-                      />)}</ProgressiveImage>
-                  </motion.div>
-                </motion.div>
-              </div>
-            </motion.div>
 
-          </div>
-          <div className='row bottom-row'>
-            <div className='top'>
-
-              <h2>FOTO MATRIMONI</h2>
+        <div className="spacer-90"></div>
+        <div className="spacer-90"></div>
 
 
-            </div>
-
-          </div>
-        </div>
         <div className='detailed-information'>
           <div className='container'>
+            <h1>IL MATRIMONIO NELLE DIVERSE CULTURE</h1>
+            <YoutubeEmbed embedId="JhPKOPS2KZ8" title="Il matrimonio nelle diverse culture" />
+            <div className="spacer-90"></div>
+
             <div className='row'>
-              testo
+
+              INVITO A NOZZE<br />
+              <br />
+              Una grande festa per celebrare la multietnicità di Ferrara e la mostra del MEIS “Mazal Tov! Il matrimonio ebraico”.<br />
+              <br />
+              L'vento si è svolto mercoledì 14 luglio nel bookshop del museo, esponenti di religioni e culture diverse hanno raccontato le tradizioni, gli usi e costumi delle nozze. Dalle caratteristiche del matrimonio ebraico si è passati ad esplorare quelle del matrimonio islamico. Si viaggia poi dalla Nigeria alla Cina per scoprire come si differenzia un evento cruciale che accomuna da secoli il mondo intero.<br />
+              <br />
+              Interventi:<br />
+              Hassan Samid –  Presidente del centro di cultura islamica di Ferrara<br />
+              Miriam Camerini – Regista, scrittrice, studiosa di ebraismo<br />
+              Blessing Eneji – Esponente della comunità nigeriana di Ferrara<br />
+              Jin Cai – Presidente onorario del Centro Interculturale Italo-Cinese di Ferrara<br />
+              <br />
+              Modera: Amedeo Spagnoletto – Direttore del MEIS<br />
+
             </div>
           </div>
         </div>

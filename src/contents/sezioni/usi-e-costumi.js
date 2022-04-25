@@ -91,13 +91,13 @@ function UsiECostumi() {
                                             </div>
                                             <div className="pure-u-1 pure-u-md-1-2">
                                                 {visibile ? <Lightbox
-                                                    image="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-3-1024x683.jpeg"
-                                                    title="TALMUD BABILONESE. TRATTATO KIDDUSHIN."
+                                                    image={require("../../images/full/usi_e_costumi/foto_07.jpg").default}
+                                                    title=" Album in onore delle nozze fra Corrado Lopez e Ada Sadun."
                                                     onClose={() => { setVisibile(false) }}
                                                 /> : null}
                                                 <img
-                                                    src="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-3-1024x683.jpeg"
-                                                    alt="foto talmud 2"
+                                                    src={require("../../images/thumbs/usi_e_costumi/foto_07.jpg").default}
+                                                    alt=" Album in onore delle nozze fra Corrado Lopez e Ada Sadun."
                                                     className="responsive"
                                                     onClick={() => { setVisibile(true) }}
                                                 />

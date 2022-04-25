@@ -70,7 +70,7 @@ function Nissuin() {
                                         <div className="spacer-30"></div>
 
                                         <div className="pure-g">
-                                            <div className="pure-u-1 pure-u-md-11-24">
+                                            <div className="pure-u-1 pure-u-md-1-2">
                                                 <h3 className="didascalia--titolo">Seder Nissuin.</h3>
                                                 <div className="didascalia--descrizione">
                                                     Ordine della cerimonia di matrimonio, Padova, sec. XIX, manoscritto con
@@ -90,13 +90,26 @@ function Nissuin() {
                                             </div>
                                             <div className="pure-u-1 pure-u-md-1-4">
                                                 {visibile ? <Lightbox
-                                                    image="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-3-1024x683.jpeg"
-                                                    title="TALMUD BABILONESE. TRATTATO KIDDUSHIN."
+                                                    image={require("../../images/full/nissuin/foto_03.jpg").default}
+                                                    title="Seder Nissuin."
                                                     onClose={() => { setVisibile(false) }}
                                                 /> : null}
                                                 <img
-                                                    src="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-3-1024x683.jpeg"
-                                                    alt="foto talmud 2"
+                                                    src={require("../../images/thumbs/nissuin/foto_03.jpg").default}
+                                                    alt="Seder Nissuin"
+                                                    className="responsive"
+                                                    onClick={() => { setVisibile(true) }}
+                                                />
+                                            </div>
+                                            <div className="pure-u-1 pure-u-md-1-4">
+                                                {visibile ? <Lightbox
+                                                    image={require("../../images/full/nissuin/foto_04.jpg").default}
+                                                    title="Seder Nissuin."
+                                                    onClose={() => { setVisibile(false) }}
+                                                /> : null}
+                                                <img
+                                                    src={require("../../images/thumbs/nissuin/foto_04.jpg").default}
+                                                    alt="Seder Nissuin"
                                                     className="responsive"
                                                     onClick={() => { setVisibile(true) }}
                                                 />

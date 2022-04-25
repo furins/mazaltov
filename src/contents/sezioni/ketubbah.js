@@ -102,13 +102,13 @@ function Ketubbah() {
                                             </div>
                                             <div className="pure-u-1 pure-u-md-1-2">
                                                 {visibile ? <Lightbox
-                                                    image="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-3-1024x683.jpeg"
-                                                    title="TALMUD BABILONESE. TRATTATO KIDDUSHIN."
+                                                    image={require("../../images/full/kettubah/foto_01.jpg").default}
+                                                    title="KETUBBAH."
                                                     onClose={() => { setVisibile(false) }}
                                                 /> : null}
                                                 <img
-                                                    src="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-3-1024x683.jpeg"
-                                                    alt="foto talmud 2"
+                                                    src={require("../../images/thumbs/kettubah/foto_01.jpg").default}
+                                                    alt="Ketubbah"
                                                     className="responsive"
                                                     onClick={() => { setVisibile(true) }}
                                                 />
@@ -129,13 +129,13 @@ function Ketubbah() {
                                             </div>
                                             <div className="pure-u-1 pure-u-md-1-2">
                                                 {visibile2 ? <Lightbox
-                                                    image="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-2-1024x683.jpeg"
-                                                    title="TALMUD BABILONESE. TRATTATO KIDDUSHIN."
+                                                    image={require("../../images/full/kettubah/foto_02.jpg").default}
+                                                    title="Ketubbah."
                                                     onClose={() => { setVisibile2(false) }}
                                                 /> : null}
                                                 <img
-                                                    src="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-2-1024x683.jpeg"
-                                                    alt="foto talmud 2"
+                                                    src={require("../../images/thumbs/kettubah/foto_02.jpg").default}
+                                                    alt="Ketubbah"
                                                     className="responsive"
                                                     onClick={() => { setVisibile2(true) }}
                                                 />

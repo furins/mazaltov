@@ -77,13 +77,13 @@ function Chuppah() {
                                             </div>
                                             <div className="pure-u-1 pure-u-md-1-2">
                                                 {visibile ? <Lightbox
-                                                    image="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-3-1024x683.jpeg"
-                                                    title="Image Title"
+                                                    image={require("../../images/full/nissuin/foto_01.jpg").default}
+                                                    title="Emanuele Luzzati - il matrimonio"
                                                     onClose={() => { setVisibile(false) }}
                                                 /> : null}
                                                 <img
-                                                    src="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-3-1024x683.jpeg"
-                                                    alt="foto talmud 2"
+                                                    src={require("../../images/thumbs/nissuin/foto_01.jpg").default}
+                                                    alt="Emanuele Luzzati - il matrimonio"
                                                     className="responsive"
                                                     onClick={() => { setVisibile(true) }}
                                                 />

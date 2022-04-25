@@ -80,13 +80,13 @@ function Regali() {
                                             </div>
                                             <div className="pure-u-1 pure-u-md-1-2">
                                                 {visibile ? <Lightbox
-                                                    image="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-3-1024x683.jpeg"
-                                                    title="TALMUD BABILONESE. TRATTATO KIDDUSHIN."
+                                                    image={require("../../images/full/i_regali_degli_sposi/foto_04.jpg").default}
+                                                    title="Sonetto"
                                                     onClose={() => { setVisibile(false) }}
                                                 /> : null}
                                                 <img
-                                                    src="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-3-1024x683.jpeg"
-                                                    alt="foto talmud 2"
+                                                    src={require("../../images/thumbs/i_regali_degli_sposi/foto_04.jpg").default}
+                                                    alt="Sonetto"
                                                     className="responsive"
                                                     onClick={() => { setVisibile(true) }}
                                                 />
@@ -147,13 +147,13 @@ function Regali() {
                                         <div className="pure-g">
                                             <div className="pure-u-1 pure-u-md-11-24">
                                                 {visibile2 ? <Lightbox
-                                                    image="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-2-1024x683.jpeg"
-                                                    title="TALMUD BABILONESE. TRATTATO KIDDUSHIN."
+                                                    image={require("../../images/full/i_regali_degli_sposi/foto_03.jpg").default}
+                                                    title="Coppia di candelabri"
                                                     onClose={() => { setVisibile2(false) }}
                                                 /> : null}
                                                 <img
-                                                    src="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-2-1024x683.jpeg"
-                                                    alt="foto talmud 2"
+                                                    src={require("../../images/thumbs/i_regali_degli_sposi/foto_03.jpg").default}
+                                                    alt="coppia di candelabri"
                                                     className="responsive"
                                                     onClick={() => { setVisibile2(true) }}
                                                 />
@@ -171,13 +171,13 @@ function Regali() {
                                         <div className="pure-g">
                                             <div className="pure-u-1 pure-u-md-11-24">
                                                 {visibile3 ? <Lightbox
-                                                    image="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/FEDE-NUZIALE-ALLEGRA-DI-NOLA-Italia-1865-2-1024x683.jpeg"
-                                                    title="FEDE NUZIALE, Italia, 1865, oro con ametista"
+                                                    image={require("../../images/full/i_regali_degli_sposi/foto_02.jpg").default}
+                                                    title="Chatelaine"
                                                     onClose={() => { setVisibile3(false) }}
                                                 /> : null}
                                                 <img
-                                                    src="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/FEDE-NUZIALE-ALLEGRA-DI-NOLA-Italia-1865-2-1024x683.jpeg"
-                                                    alt="foto anello"
+                                                    src={require("../../images/thumbs/i_regali_degli_sposi/foto_02.jpg").default}
+                                                    alt="Chatelaine"
                                                     className="responsive"
                                                     onClick={() => { setVisibile3(true) }}
                                                 />
@@ -205,13 +205,13 @@ function Regali() {
                                         <div className="pure-g">
                                             <div className="pure-u-1 pure-u-md-11-24">
                                                 {visibile4 ? <Lightbox
-                                                    image="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/FEDE-NUZIALE-ALLEGRA-DI-NOLA-Italia-1865-2-1024x683.jpeg"
-                                                    title="FEDE NUZIALE, Italia, 1865, oro con ametista"
+                                                    image={require("../../images/full/i_regali_degli_sposi/foto_09.jpg").default}
+                                                    title="Coppia di braccialetti intrecciati"
                                                     onClose={() => { setVisibile4(false) }}
                                                 /> : null}
                                                 <img
-                                                    src="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/FEDE-NUZIALE-ALLEGRA-DI-NOLA-Italia-1865-2-1024x683.jpeg"
-                                                    alt="foto anello"
+                                                    src={require("../../images/thumbs/i_regali_degli_sposi/foto_09.jpg").default}
+                                                    alt="Coppia di braccialetti intrecciati"
                                                     className="responsive"
                                                     onClick={() => { setVisibile4(true) }}
                                                 />

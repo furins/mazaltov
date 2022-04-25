@@ -68,12 +68,12 @@ function Miqveh() {
                                             </div>
                                             <div className="pure-u-1 pure-u-md-1-4">
                                                 {visibile ? <Lightbox
-                                                    image="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-3-1024x683.jpeg"
+                                                    image={require("../../images/full/miqveh/foto_01.jpg").default}
                                                     title="TALMUD BABILONESE. TRATTATO KIDDUSHIN."
                                                     onClose={() => { setVisibile(false) }}
                                                 /> : null}
                                                 <img
-                                                    src="https://mazaltov.meis.museum/exhibit/wp-content/uploads/2022/04/Talmud-Kiddushin-3-1024x683.jpeg"
+                                                    src={require("../../images/full/miqveh/foto_01.jpg").default}
                                                     alt="foto talmud 2"
                                                     className="responsive"
                                                     onClick={() => { setVisibile(true) }}

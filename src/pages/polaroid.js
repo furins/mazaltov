@@ -24,13 +24,7 @@ const Foto = () => {
   // animazione
   const [canScroll, setCanScroll] = useState(false);
 
-  useEffect(() => {
-    if (canScroll === false) {
-      document.querySelector("body").classList.add("no-scroll");
-    } else {
-      document.querySelector("body").classList.remove("no-scroll");
-    }
-  }, [canScroll]);
+  document.querySelector("body").classList.remove("no-scroll");
 
 
 
@@ -43,68 +37,130 @@ const Foto = () => {
         initial='initial'
         animate='animate'
         exit='exit'>
-        <div className='container fluid'>
-          <div className='row center top-row'>
-            <motion.div className='scroller-wrapper'
-              transition={transition}
-              initial={{
-                backgroundColor: "rgba(37, 48, 129, 0.7)",
-              }}
-              animate={{
-                backgroundColor: "#ffffff",
-              }}>
-              <div className='scroller'>
-                <motion.div
-                  className='scroller-img-wrapper'
-                  transition={transition}
-                  initial={{
-                    boxShadow: "0 10px 20px rgba(0, 0, 0, 0.5)",
-                    borderRadius: "10px",
-                  }}
-                  animate={{
-                    transition: { delay: 0.2, ...transition },
-                    boxShadow: "0 0px 0px rgba(0, 0, 0, 0)",
-                    borderRadius: "0px",
-                  }}>
-                  <motion.div
-                    className='frame-single'
-                    whileHover='hover'
-                  >
-                    <ProgressiveImage
-                      src={require("../images/pre-cover.png").default}
-                      placeholder={require("../images/pre-cover.png").default}>
-                      {(src) => (<motion.img
-                        src={src}
-                        alt="pre_cover"
-                        transition={transition}
-                        initial={{
-                          width: "350px",
-                        }}
-                        animate={{
-                          transition: { delay: 0.2, ...transition },
-                          width: "130vw",
-                        }}
-                      />)}</ProgressiveImage>
-                  </motion.div>
-                </motion.div>
-              </div>
-            </motion.div>
-
-          </div>
-          <div className='row bottom-row'>
-            <div className='top'>
-
-              <h2>FOTO MATRIMONI</h2>
-
-
-            </div>
-
-          </div>
-        </div>
         <div className='detailed-information'>
           <div className='container'>
+            <div className="spacer-90"></div>
+            <div className="spacer-90"></div>
+
+            <h2>FOTO MATRIMONI</h2>
+
             <div className='row'>
-              testo
+              <div className="pure-g" style={{ width: `90vw` }}>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid01.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid02.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid03.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid04.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid05.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid06.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid07.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid08.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid09.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid10.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid11.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid12.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid13.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid14.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid15.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid16.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid17.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid18.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid19.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid20.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid21.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid22.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid23.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid24.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid25.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid26.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid27.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid28.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid29.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid30.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid31.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid32.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid33.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid34.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid35.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid36.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid37.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+                <div className="card pure-u-1 pure-u-md-1-3">
+                  <img src={require("../images/polaroid/polaroid38.jpg").default} alt="" className="foto--matrimoni" />
+                </div>
+              </div>
             </div>
           </div>
         </div>

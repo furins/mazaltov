@@ -64,7 +64,7 @@ function Presentazione() {
                 <div className="pure-g">
                     <div className="spacer-30"></div>
                     <div className="row buttons">
-                        <Link to='/mappa' onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); state.headerColor = 'light' }} className="link button width-100">
+                        <Link to='/visita' onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); state.headerColor = 'light' }} className="link button width-100">
                             VISITA VIRTUALE
                         </Link>
                         <Link to='/mostra' onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); state.headerColor = 'light' }} className="link button width-100">

@@ -929,6 +929,18 @@ img.responsive {
   background-size: 20%;
 }
 
+.foto--matrimoni {
+  display: block;
+  max-width: 400px;
+  box-sizing: border-box;
+  padding: 3vh 4vw;
+  margin-bottom: 3em;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  @media (min-width: 768px) {
+    padding: 3vh 2vw;
+  }
+}
+
 .polaroid {
   text-decoration: none;
   cursor: pointer;
