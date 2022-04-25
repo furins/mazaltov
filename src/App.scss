@@ -950,7 +950,6 @@ img.responsive {
 
 .polaroid {
   text-decoration: none;
-  background-color: white;
   cursor: pointer;
   display: block;
   box-sizing: border-box;
@@ -967,6 +966,7 @@ img.responsive {
   align-items: stretch;
   cursor: pointer;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  background-color: white;
   border: none;
   width: 100%;
   padding: 20px;
