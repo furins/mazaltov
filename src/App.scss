@@ -6,7 +6,7 @@ $font-base: Oxygen, Ubuntu, 'Open Sans', 'Helvetica Neue', sans-serif;
 $font-title: 'MazalTov', serif;
 
 // @import url('https://fonts.googleapis.com/css2?family=Cantarell:wght@400;700&family=Merriweather:ital,wght@1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&family=Oxygen:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
 @font-face {
   font-family: 'MazalTov';
   src: local('MazalTov'), url(./fonts/mazaltov.woff) format('woff');
@@ -19,7 +19,6 @@ $font-title: 'MazalTov', serif;
 * {
   box-sizing: border-box;
   font-family: $font-base;
-  font-weight: 700;
 }
 
 body {
@@ -170,6 +169,8 @@ header {
 
 main {
   h1.details {
+    font-weight: 700;
+
     text-align: left;
     font-size: 4vw;
     max-width: 75vw;
@@ -815,10 +816,6 @@ h6 {
     color: #666;
     font-weight: normal;
   }
-
-  .quote {
-    font-style: italic;
-  }
 }
 
 .pure-g > div {
@@ -869,7 +866,6 @@ h6 {
   }
 
   .quote {
-    font-style: italic;
     color: $white;
   }
 }
@@ -923,6 +919,10 @@ img.responsive {
 
 .didascalia--titolo {
   font-size: 130%;
+}
+
+.didascalia--descrizione {
+  font-weight: bold;
 }
 
 .stellato {
@@ -983,9 +983,10 @@ img.responsive {
 .polaroid--text {
   cursor: pointer;
   text-decoration: none;
+  text-transform: uppercase;
   text-align: center;
-  font-family: 'Ms Madi', cursive;
-  font-size: 3vh;
+  font-family: $font-title;
+  font-size: 2vh;
   color: $black;
   padding-top: 1.5vh;
   line-height: 100%;
@@ -994,14 +995,14 @@ img.responsive {
   }
   @media (min-width: 768px) {
     padding-top: 2vh;
-    font-size: 3.1vh;
+    font-size: 2.1vh;
   }
   @media (min-width: 950px) {
-    font-size: 3.4vh;
+    font-size: 2.4vh;
   }
   @media (min-width: 1200px) {
     padding-top: 2.5vh;
-    font-size: 3.7vh;
+    font-size: 2.7vh;
   }
 }
 
@@ -1090,4 +1091,8 @@ img.responsive {
   position: absolute;
   top: 0;
   width: 100%;
+}
+
+.mostra {
+  padding-top: 120px;
 }

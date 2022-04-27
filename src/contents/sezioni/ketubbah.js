@@ -85,7 +85,7 @@ function Ketubbah() {
                                                 }}
 
                                                 allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                                                allowfullscreen="true"
+                                                allowFullScreen="true"
                                             ></iframe>
                                         </div>
                                         <div className="spacer-30"></div>

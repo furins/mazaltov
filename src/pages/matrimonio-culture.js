@@ -55,21 +55,21 @@ const Culture = () => {
             <YoutubeEmbed embedId="JhPKOPS2KZ8" title="Il matrimonio nelle diverse culture" />
             <div className="spacer-90"></div>
 
-            <div className='row'>
+            <div className='row container--page'>
 
-              INVITO A NOZZE<br />
-              <br />
-              Una grande festa per celebrare la multietnicità di Ferrara e la mostra del MEIS “Mazal Tov! Il matrimonio ebraico”.<br />
-              <br />
-              L'vento si è svolto mercoledì 14 luglio nel bookshop del museo, esponenti di religioni e culture diverse hanno raccontato le tradizioni, gli usi e costumi delle nozze. Dalle caratteristiche del matrimonio ebraico si è passati ad esplorare quelle del matrimonio islamico. Si viaggia poi dalla Nigeria alla Cina per scoprire come si differenzia un evento cruciale che accomuna da secoli il mondo intero.<br />
-              <br />
-              Interventi:<br />
-              Hassan Samid –  Presidente del centro di cultura islamica di Ferrara<br />
-              Miriam Camerini – Regista, scrittrice, studiosa di ebraismo<br />
-              Blessing Eneji – Esponente della comunità nigeriana di Ferrara<br />
-              Jin Cai – Presidente onorario del Centro Interculturale Italo-Cinese di Ferrara<br />
-              <br />
-              Modera: Amedeo Spagnoletto – Direttore del MEIS<br />
+              <h2>INVITO A NOZZE</h2>
+
+              <p>Una grande festa per celebrare la multietnicità di Ferrara e la mostra del MEIS “Mazal Tov! Il matrimonio ebraico”.</p>
+
+              <p>L'evento si è svolto mercoledì 14 luglio nel bookshop del museo, esponenti di religioni e culture diverse hanno raccontato le tradizioni, gli usi e costumi delle nozze. Dalle caratteristiche del matrimonio ebraico si passa ad esplorare quelle del matrimonio islamico. Si viaggia dalla Nigeria alla Cina per scoprire come si differenzia un evento cruciale che accomuna da secoli il mondo intero.</p>
+
+              <p>Interventi:<br />
+                Hassan Samid –  Presidente del centro di cultura islamica di Ferrara<br />
+                Miriam Camerini – Regista, scrittrice, studiosa di ebraismo<br />
+                Blessing Eneji – Esponente della comunità nigeriana di Ferrara<br />
+                Jin Cai – Presidente onorario del Centro Interculturale Italo-Cinese di Ferrara<br />
+                <br />
+                Modera: Amedeo Spagnoletto – Direttore del MEIS</p>
 
             </div>
           </div>

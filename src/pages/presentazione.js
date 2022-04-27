@@ -121,14 +121,15 @@ function Presentazione() {
 
                         </div>
 
-                        <div className="firma">
-                            SHARON REICHEL<br />
-                            Curatrice<br />
-                            Museo Nazionale dell’Ebraismo Italiano e della Shoah
-                        </div> <br />
+
                         <div className="firma">
                             AMEDEO SPAGNOLETTO <br />
                             Direttore<br />
+                            Museo Nazionale dell’Ebraismo Italiano e della Shoah
+                        </div><br />
+                        <div className="firma">
+                            SHARON REICHEL<br />
+                            Curatrice<br />
                             Museo Nazionale dell’Ebraismo Italiano e della Shoah
                         </div>
                     </div>
