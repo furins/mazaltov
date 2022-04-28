@@ -9,7 +9,7 @@ import "react-awesome-lightbox/build/style.css";
 const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] };
 function Ketubbah() {
     const titolo = "Ketubbah";
-    const prima = "/qiddushin";
+    const prima = "/quiddushin";
     const dopo = "/nissuin";
 
     document.querySelector("body").classList.remove("no-scroll");
