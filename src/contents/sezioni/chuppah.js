@@ -61,7 +61,7 @@ function Chuppah() {
 
                                     <div className="pure-g">
                                         <div className="pure-u-1 pure-u-md-11-24">
-                                            <h3 className="didascalia--titolo">EMANUELE LUZZATI (1921-2007).</h3>
+                                            <h3 className="didascalia--titolo">EMANUELE LUZZATI (1921-2007)</h3>
                                             <div className="didascalia--descrizione">
                                                 Il Matrimonio, Italia, 1988, tavola, tecnica mista
                                             </div>

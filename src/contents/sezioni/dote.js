@@ -67,7 +67,7 @@ function Dote() {
                                                 width: `100%`,
                                             }}
                                             allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                                            allowFullScreen="true"
+                                            allowFullScreen={true}
                                         ></iframe>
                                     </div>
                                     <div className="spacer-30"></div>

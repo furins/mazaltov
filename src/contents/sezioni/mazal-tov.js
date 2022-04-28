@@ -74,12 +74,12 @@ function MazalTov() {
                                         </div>
                                         <div className="pure-u-1 pure-u-md-1-2">
                                             {visibile ? <Lightbox
-                                                image={require("../../images/full/mazaltov/foto_01.jpg").default}
+                                                image={require("../../images/full/mazaltov/foto_05.jpg").default}
                                                 title="Jenny Hassan, Il calice degli sposi"
                                                 onClose={() => { setVisibile(false) }}
                                             /> : null}
                                             <img
-                                                src={require("../../images/thumbs/mazaltov/foto_01.jpg").default}
+                                                src={require("../../images/thumbs/mazaltov/foto_05.jpg").default}
                                                 alt="Jenny Hassan, Il calice degli sposi"
                                                 className="responsive"
                                                 onClick={() => { setVisibile(true) }}
