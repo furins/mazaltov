@@ -65,6 +65,11 @@ function Header() {
 						</Link>
 					</li>
 					<li>
+						<a href='https://www.ibs.it/mazal-tov-matrimonio-ebraico-guida-libro-vari/e/9788874671816' target="_blank" rel="noreferrer">
+							CATALOGO
+						</a>
+					</li>
+					<li>
 						<span onClick={() => { document.querySelector(".menu").classList.remove("showMenu"); }}>
 							CHIUDI
 						</span>

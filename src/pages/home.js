@@ -126,11 +126,17 @@ function Indice() {
                         <a href="https://meis.museum/la-fondazione/sostieni/" target="_blank" rel="noreferrer" className="link button width-100">
                             SOSTIENICI
                         </a>
-                        <br />
-                        <br />
+                        <span style={{ minWidth: "12px", width: "12px", display: "inline-block" }}></span>
                         <Link to="/colophon" className="link button width-100">
                             COLOPHON
                         </Link>
+                        <br />
+                        <br />
+                        <a href="https://www.ibs.it/mazal-tov-matrimonio-ebraico-guida-libro-vari/e/9788874671816" target="_blank" rel="noreferrer" className="link button width-100">
+                            ACQUISTA IL CATALOGO DELLA MOSTRA
+                        </a>
+
+
 
                     </div>
                 </div>
