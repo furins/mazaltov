@@ -64,7 +64,7 @@ function Ketubbah() {
                                     <div style={{ position: "relative", paddingTop: `56.25%` }}>
                                         <iframe
                                             title="Ketubbah"
-                                            src="https://iframe.videodelivery.net/45d1e5b241bcaf7c1fe32de5ad08dd44?autoplay=true&poster=https%3A%2F%2Fvideodelivery.net%2F45d1e5b241bcaf7c1fe32de5ad08dd44%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600"
+                                            src="https://customer-obkztimdp7y2lyhl.cloudflarestream.com/c37cba715e14c96ccdd7bb6f22790d82/iframe?poster=https%3A%2F%2Fcustomer-obkztimdp7y2lyhl.cloudflarestream.com%2Fc37cba715e14c96ccdd7bb6f22790d82%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600"
                                             style=
                                             {{
                                                 border: "none",
